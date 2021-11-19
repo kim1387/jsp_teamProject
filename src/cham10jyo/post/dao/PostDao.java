@@ -137,12 +137,12 @@ public class PostDao {
         }
     }
 
+
     /**
      * title로 게시글 검색
      * @param title
      * @return
      */
-
     public boolean searchByTitle(String title) {
         try {
             pstmt = connection.prepareStatement("select * from post where title like '%?%'");
@@ -154,9 +154,4 @@ public class PostDao {
             return false; //데이터베이스 오류
         }
     }
-
-
-
-
-
 }
