@@ -1,12 +1,12 @@
 package cham10jyo.user.domain;
 
 public class User {
-    String id;
-    String password; // 이메일과 비밀 번호를 통해 로그인
-    String name;
-    String gender;
-    String email;
-    String authority;
+    private String id;
+    private String password; // 이메일과 비밀 번호를 통해 로그인
+    private String name;
+    private String gender;
+    private String email;
+    private String authority;
 
     public String getId() {
         return id;

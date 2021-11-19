@@ -32,9 +32,7 @@ public class UserDao {
 			if(rs.getString(1).equals(pw)) {
 				return true; //성공
 			}
-			else{
-				return false; //실패
-			}
+			return false; //실패
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;

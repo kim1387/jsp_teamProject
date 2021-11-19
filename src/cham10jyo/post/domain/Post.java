@@ -3,13 +3,13 @@ package cham10jyo.post.domain;
 import java.util.Date;
 
 public class Post {
-    Long id;
-    String title;
-    String userId;
-    Date createdDate;
-    Date updatedDate;
-    String content;
-    Boolean removed;
+    private Long id;
+    private String title;
+    private String userId;
+    private Date createdDate;
+    private Date updatedDate;
+    private String content;
+    private Boolean isRemoved;
 
     public Long getId() {
         return id;
@@ -60,10 +60,11 @@ public class Post {
     }
 
     public Boolean getRemoved() {
-        return removed;
+        return isRemoved;
     }
 
     public void setRemoved(Boolean removed) {
-        this.removed = removed;
+        isRemoved = removed;
     }
+
 }
