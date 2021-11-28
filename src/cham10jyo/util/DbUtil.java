@@ -10,26 +10,24 @@ import java.util.Properties;
 public class DbUtil {
 	private static Connection connection = null;
 
-    public static Connection getConnection() { // 싱글톤 적용
+    public static Connection getConnection(){ // 싱글톤 적용
         if (connection != null)
             return connection;
-        else {
-            try {
-            	Properties prop = new Properties();
-                //TODO yml 로 변경
-                InputStream inputStream = DbUtil.class.getClassLoader().getResourceAsStream("/db.properties");
-                prop.load(inputStream);
-                String driver = prop.getProperty("driver");
-                String url = prop.getProperty("url");
-                String user = prop.getProperty("user");
-                String password = prop.getProperty("password");
-                Class.forName(driver);
-                connection = DriverManager.getConnection(url, user, password);
-            } catch (ClassNotFoundException | SQLException | IOException e) {
-                e.printStackTrace();
-            }
-            return connection;
+        try {
+            Properties prop = new Properties();
+            //TODO yml 로 변경
+            InputStream inputStream = DbUtil.class.getClassLoader().getResourceAsStream("/db.properties");
+            prop.load(inputStream);
+            String driver = prop.getProperty("driver");
+            String url = prop.getProperty("url");
+            String user = prop.getProperty("user");
+            String password = prop.getProperty("password");
+            Class.forName(driver);
+            connection = DriverManager.getConnection(url, user, password);
+        } catch (ClassNotFoundException | SQLException | IOException e) {
+            e.printStackTrace();
         }
+        return connection;
 
     }
 }
