@@ -1,6 +1,7 @@
 <%@ page import="java.io.PrintWriter" %>
 <%@ page import="cham10jyo.post.domain.Post" %>
-<%@ page import="cham10jyo.post.dao.PostDao" %><%--
+<%@ page import="cham10jyo.post.dao.PostDao" %>
+<%--
   Created by IntelliJ IDEA.
   User: GHKIM
   Date: 2021-11-19
