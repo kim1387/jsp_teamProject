@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
 <link rel ="stylesheet"
@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<link href="blog.css" rel="stylesheet">
     <title>허밍랜드 즐길 거리- Huming Land Attraction</title>
-    <%@ include file="./header.jsp"%>
+    <%@ include file="header.jsp"%>
 </head>
 <body>
 <div>
@@ -31,7 +31,7 @@
               <p class="card-text mb-auto">허밍랜드와 도시 풍경이 내려다보이는 대관람차! 소중한 사람과 아름다운 시간을 보내세요</p>
             
             </div>
-            <img class="card-img-right flex-auto d-none d-md-block" src="./img/amuse_slide_img1.jpg" alt="Card image cap">
+            <img class="card-img-right flex-auto d-none d-md-block" src="img/amuse_slide_img1.jpg" alt="Card image cap">
           </div>
         </div>
         
@@ -45,7 +45,7 @@
               <div class="mb-1 text-muted">09:00~11:00</div>
               <p class="card-text mb-auto">허밍랜드 대표 랜드마크 회전목마! 12시가 되면 안돼요~ 집에 가야해요~</p>
             </div>
-            <img class="card-img-right flex-auto d-none d-md-block" src="./img/amuse_slide_img2.jpg" alt="Card image cap">
+            <img class="card-img-right flex-auto d-none d-md-block" src="img/amuse_slide_img2.jpg" alt="Card image cap">
           </div>
         </div>
         
@@ -59,14 +59,13 @@
               <div class="mb-1 text-muted">09:00~11:00</div>
               <p class="card-text mb-auto"> 뱅글뱅글 돌고 돌아 이 세상 저 끝까지! 지금까지 이런 그네는 없었다. 이것은 그네인가 놀이기구인가! </p>
             </div>
-            <img class="card-img-right flex-auto d-none d-md-block" src="./img/amuse_slide_img3.jpg" alt="Card image cap">
+            <img class="card-img-right flex-auto d-none d-md-block" src="img/amuse_slide_img3.jpg" alt="Card image cap">
           </div>
         </div>
         
       </div>
     </div>
     </div>
-</div>
 </body>
-<%@ include file="./footer.jsp"%>
+<%@ include file="footer.jsp"%>
 </html>

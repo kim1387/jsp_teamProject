@@ -1,13 +1,13 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
 	<link rel ="stylesheet"
 		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <meta charset="utf-8">	
-    <link href="./signin.css" rel="stylesheet">
+    <link href="signin.css" rel="stylesheet">
     
     <title>허밍랜드 로그인- login</title>
-	  <%@ include file="./header.jsp"%>
+	  <%@ include file="header.jsp"%>
 </head>
 <body>
 
@@ -25,7 +25,7 @@
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
     </form>
     
-	<%@ include file="./footer.jsp"%>
+	<%@ include file="footer.jsp"%>
 
 </body>
 </html>
