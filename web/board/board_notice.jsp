@@ -5,20 +5,20 @@
   Time: 5:08 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title>소통 큐엔에이</title>
+    <title>소통 공지사항</title>
     <%@ include file="../header.jsp"%>
 </head>
 <body>
 <div class="container">
     <div class="row">
         <div class="col-2">
-            <%@include file="../sidemenu.jsp"%>
+            <%@ include file="../sidemenu.jsp"%>
         </div>
         <div class="col mt-4 mr-5">
-            <h1>Q&A 게시판</h1>
+            <h1>공지사항 게시판</h1>
             <table class="table">
                 <thead class="thead-light">
                 <tr>
