@@ -9,14 +9,18 @@
 <html>
 <head>
     <title>소통 게시판</title>
+<<<<<<< HEAD
     <%@ include file="/view/components/header.jsp"%>
     <link href="/view/css/common.css" rel="stylesheet">
+=======
+    <%@ include file="../../../view/components/header.jsp"%>
+>>>>>>> faeb82b7881de7222d925bc9498b731003e00d57
 </head>
 <body>
 <div class="container">
     <div class="row">
         <div class="col-2">
-            <%@ include file="/view/components/sidemenu.jsp"%>
+            <%@ include file="../../../view/components/sidemenu.jsp"%>
         </div>
         <div class="col mt-4 mr-5">
             <h1>작성 게시글 번호 나 제목</h1>

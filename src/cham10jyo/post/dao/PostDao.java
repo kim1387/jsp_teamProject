@@ -1,6 +1,8 @@
 package cham10jyo.post.dao;
 
 import cham10jyo.post.domain.Post;
+import cham10jyo.post.dto.PostAddDto;
+import cham10jyo.post.dto.PostEditDto;
 import cham10jyo.util.DbUtil;
 
 import java.sql.Connection;
@@ -21,21 +23,19 @@ public class PostDao {
 
     /**
      *  게시글 생성
-     * @param title 제목
-     * @param userid 작성자 id
-     * @param content 내용
+     * @param postAddDto 제목
      * @return 게시글 생성 성공 여부
      */
-    public boolean write(String title, String userid, String content) {
+    public boolean write(PostAddDto postAddDto) {
         String SQL = "insert into post values(?, ?, ?, ?, ?, ?)";
         try {
             java.sql.Date today = (java.sql.Date) new Date();
             pstmt = connection.prepareStatement(SQL);
-            pstmt.setString(1, title);
-            pstmt.setString(2, userid);
+            pstmt.setString(1, postAddDto.getTitle());
+            pstmt.setString(2, postAddDto.getUserId());
             pstmt.setDate(3, today);
             pstmt.setDate(4, today);
-            pstmt.setString(5, content);
+            pstmt.setString(5, postAddDto.getContent());
             pstmt.setInt(6, 0); // 0 - false, 1 - true 삭제 여부
             pstmt.executeUpdate();
             return true;
@@ -49,17 +49,16 @@ public class PostDao {
     /**
      * 게시글 수정
      * @param id 수정할 게시글을 찾기 위한 id
-     * @param title 제목이 title로 수정됨
-     * @param content 내용이 content로 수정됨
+     * @param postEditDto 제목이 title로 수정됨
      * @return
      */
-    public boolean editContent(Long id, String title, String content) {
+    public boolean editContent(PostEditDto postEditDto, Long id) {
         try {
             java.sql.Date today = (java.sql.Date) new Date();
             pstmt = connection.prepareStatement("update post set title=?, updated_date=?,content=? where id=?");
-            pstmt.setString(1, title);
+            pstmt.setString(1, postEditDto.getTitle());
             pstmt.setDate(2, today);
-            pstmt.setString(3, content);
+            pstmt.setString(3, postEditDto.getContent());
             pstmt.setLong(4, id);
             pstmt.executeUpdate();
             return true;
@@ -143,15 +142,53 @@ public class PostDao {
      * @param title
      * @return
      */
-    public boolean searchByTitle(String title) {
+    public ArrayList<Post> searchByTitle(String title) {
+        ArrayList<Post> posts = new ArrayList<Post>();
         try {
             pstmt = connection.prepareStatement("select * from post where title like '%?%'");
             pstmt.setString(1, title);
             rs = pstmt.executeQuery();
-            return true;
+            while (rs.next()){
+                Post post = new Post();
+                post.setId(rs.getLong(1));
+                post.setTitle(rs.getString(2));
+                post.setUserId(rs.getString(3));
+                post.setCreatedDate(rs.getDate(4));
+                post.setUpdatedDate(rs.getDate(5));
+                post.setRemoved(rs.getBoolean(6));
+                posts.add(post);
+            }
+            return posts;
         } catch (Exception e) {
             e.printStackTrace();
-            return false; //데이터베이스 오류
+            return null; //데이터베이스 오류
+        }
+    }
+
+
+    /**
+     * 모든 게시물 불러오기
+     * @return
+     */
+    public ArrayList<Post> getAllPost() {
+        ArrayList<Post> posts = new ArrayList<Post>();
+        try {
+            pstmt = connection.prepareStatement("select * from post");
+            rs = pstmt.executeQuery();
+            while (rs.next()){
+                Post post = new Post();
+                post.setId(rs.getLong(1));
+                post.setTitle(rs.getString(2));
+                post.setUserId(rs.getString(3));
+                post.setCreatedDate(rs.getDate(4));
+                post.setUpdatedDate(rs.getDate(5));
+                post.setRemoved(rs.getBoolean(6));
+                posts.add(post);
+            }
+            return posts;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null; //데이터베이스 오류
         }
     }
 }
