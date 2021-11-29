@@ -9,13 +9,13 @@
 <html>
 <head>
     <title>소통 공지사항</title>
-    <%@ include file="/view/components/header.jsp"%>
+    <%@ include file="../../../view/components/header.jsp"%>
 </head>
 <body>
 <div class="container">
     <div class="row">
         <div class="col-2">
-            <%@ include file="/view/components/sidemenu.jsp"%>
+            <%@ include file="../../../view/components/sidemenu.jsp"%>
         </div>
         <div class="col mt-4 mr-5">
             <h1>공지사항 게시판</h1>
@@ -53,5 +53,5 @@
     </div>
 </div>
 </body>
-<%@ include file="/view/components/footer.jsp"%>
+<%@ include file="../../../view/components/footer.jsp"%>
 </html>

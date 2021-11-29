@@ -9,13 +9,13 @@
 <html>
 <head>
     <title>소통 글쓰기</title>
-    <%@ include file="/view/components/header.jsp"%>
+    <%@ include file="../../../view/components/header.jsp"%>
 </head>
 <body>
     <div class="container">
         <div class="row">
             <div class="col-2">
-                <%@ include file="/view/components/sidemenu.jsp"%>
+                <%@ include file="../../../view/components/sidemenu.jsp"%>
             </div>
             <div class="col mt-4 mr-5">
                 <h1>글 작성하기</h1>
@@ -44,5 +44,5 @@
     </div>
 <script src="/view/js/common.js"></script>
 </body>
-<%@ include file="/view/components/footer.jsp"%>
+<%@ include file="../../../view/components/footer.jsp"%>
 </html>

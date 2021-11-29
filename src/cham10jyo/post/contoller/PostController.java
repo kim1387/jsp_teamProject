@@ -1,5 +1,7 @@
 package cham10jyo.post.contoller;
 
+import cham10jyo.post.dao.PostDao;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,9 +11,13 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 
-
 @WebServlet("/post")
 public class PostController extends HttpServlet {
+
+    private PostDao postDao =null;
+    public PostController() {
+        postDao = new PostDao();
+    }
 
 
     /**
@@ -22,10 +28,11 @@ public class PostController extends HttpServlet {
      * @throws IOException
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html;charset=utf-8");
-        PrintWriter out = response.getWriter();
-        out.print("<h1>MyServlet!<h1>");
+
+
+        response.sendRedirect("./view/page/board/");
     }
 
 

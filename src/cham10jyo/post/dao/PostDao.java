@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class PostDao {
     private Connection connection;
@@ -143,15 +144,53 @@ public class PostDao {
      * @param title
      * @return
      */
-    public boolean searchByTitle(String title) {
+    public ArrayList<Post> searchByTitle(String title) {
+        ArrayList<Post> posts = new ArrayList<Post>();
         try {
             pstmt = connection.prepareStatement("select * from post where title like '%?%'");
             pstmt.setString(1, title);
             rs = pstmt.executeQuery();
-            return true;
+            while (rs.next()){
+                Post post = new Post();
+                post.setId(rs.getLong(1));
+                post.setTitle(rs.getString(2));
+                post.setUserId(rs.getString(3));
+                post.setCreatedDate(rs.getDate(4));
+                post.setUpdatedDate(rs.getDate(5));
+                post.setRemoved(rs.getBoolean(6));
+                posts.add(post);
+            }
+            return posts;
         } catch (Exception e) {
             e.printStackTrace();
-            return false; //데이터베이스 오류
+            return null; //데이터베이스 오류
+        }
+    }
+
+
+    /**
+     * 모든 게시물 불러오기
+     * @return
+     */
+    public ArrayList<Post> getAllPost() {
+        ArrayList<Post> posts = new ArrayList<Post>();
+        try {
+            pstmt = connection.prepareStatement("select * from post");
+            rs = pstmt.executeQuery();
+            while (rs.next()){
+                Post post = new Post();
+                post.setId(rs.getLong(1));
+                post.setTitle(rs.getString(2));
+                post.setUserId(rs.getString(3));
+                post.setCreatedDate(rs.getDate(4));
+                post.setUpdatedDate(rs.getDate(5));
+                post.setRemoved(rs.getBoolean(6));
+                posts.add(post);
+            }
+            return posts;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null; //데이터베이스 오류
         }
     }
 }

@@ -9,13 +9,13 @@
 <html>
 <head>
     <title>소통 게시판</title>
-    <%@ include file="/view/components/header.jsp"%>
+    <%@ include file="../../../view/components/header.jsp"%>
 </head>
 <body>
 <div class="container">
     <div class="row">
         <div class="col-2">
-            <%@ include file="/view/components/sidemenu.jsp"%>
+            <%@ include file="../../../view/components/sidemenu.jsp"%>
         </div>
         <div class="col mt-4 mr-5">
             <h1>작성 게시글 번호 나 제목</h1>
