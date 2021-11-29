@@ -109,11 +109,11 @@
     <div>
         <h2 class="display-6 text-center mt-5">가이드 맵</h2>
         <div class="px-4 py-5 text-center">
-            <img class="d-block mx-auto mb-4" src="/view/img/amuse_slide_event1.png" alt="" width="72" height="57">
+            <img class="d-block mx-auto mb-4" src="/view/img/amuse_slide_event1.png" alt="" width="80%">
             <h1 class="display-5 fw-bold">보다 편하게, 보다 알차게
                 모험을 즐기세요!</h1>
             <div class="col-lg-6 mx-auto">
-                <p class="lead mb-4">지금 바로 허밍랜드 가이드 맵을 다운받으세요!
+                <p class="lead mb-4">지금 바로 허밍랜드 가이드 맵을 다운받으세요!<br>
                     어트랙션, 다이닝, 쇼핑 가이드를 한 눈에 확인 할 수 있습니다.</p>
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
                     <button type="button" class="btn btn-primary btn-lg px-4 gap-3">다운받기</button>

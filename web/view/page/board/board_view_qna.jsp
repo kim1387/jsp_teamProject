@@ -20,13 +20,14 @@
         </div>
         <div class="col mt-4 mr-5">
             <h1>작성 게시글 번호 나 제목</h1>
-            <div class="border mb-3">내용 출력</div>
+            <div class="border mb-3">질문란</div>
+            <div class="border mb-3">답변란</div>
             <form class="hidden">
                 <textarea class="form-control" id="inputQnaWriter" rows="4" cols="50" maxlength="2048" placeholder="내용을 입력해주세요" style="resize: none;"></textarea>
                 <button onclick="handletUpdate()" class="btn btn-Success btn-lg active mt-3" role="button" aria-pressed="true">완료하기</button>
             </form>
-            <button class="btn btn-primary btn-lg active" role="button" aria-pressed="true">수정하기</button>
-            <button onclick="handleDelete()" class="btn btn-danger btn-lg active" role="button" aria-pressed="true">삭제하기</button>
+            <button onclick="handleComment()"  class="btn btn-primary btn-lg active" role="button" aria-pressed="true">답변달기</button>
+            <button onclick="handleQnADelete()" class="btn btn-danger btn-lg active" role="button" aria-pressed="true">삭제하기</button>
         </div>
     </div>
 </div>

@@ -31,19 +31,19 @@
                 <tbody>
                 <tr>
                     <th scope="row">1</th>
-                    <td><a href="board_view.jsp">제목입니다.</a></td>
+                    <td><a href="board_view_qna.jsp">제목입니다.</a></td>
                     <td>Otto</td>
                     <td>111</td>
                 </tr>
                 <tr>
                     <th scope="row">2</th>
-                    <td><a href="board_view.jsp">제목입니다.</a></td>
+                    <td><a href="board_view_qna.jsp">제목입니다.</a></td>
                     <td>Otto</td>
                     <td>111</td>
                 </tr>
                 <tr>
                     <th scope="row">3</th>
-                    <td><a href="board_view.jsp">제목입니다.</a></td>
+                    <td><a href="board_view_qna.jsp">제목입니다.</a></td>
                     <td>Otto</td>
                     <td>111</td>
                 </tr>

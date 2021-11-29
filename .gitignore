@@ -5,4 +5,4 @@
 .idea
 *.iml
 out
-gen
+gen:
