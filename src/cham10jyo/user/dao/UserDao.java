@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 
 import cham10jyo.user.domain.User;
 import cham10jyo.user.dto.UserEditDto;
+import cham10jyo.user.dto.UserJoinDto;
 import cham10jyo.util.DbUtil;
 
 public class UserDao {
@@ -45,18 +46,18 @@ public class UserDao {
 
 	/**
 	 * 회원 가입
-	 * @param user
+	 * @param userJoinDto
 	 * @return 성공 실패
 	 */
-	public boolean join(User user) {
+	public boolean join(UserJoinDto userJoinDto) {
 		try {
 			pstmt = connection.prepareStatement("insert into user values ( ?, ?, ?, ?, ?, ?)");
-			pstmt.setString(1, user.getId());
-			pstmt.setString(2, user.getPassword());
-			pstmt.setString(3, user.getName());
-			pstmt.setString(4, user.getGender());
-			pstmt.setString(5, user.getEmail());
-			pstmt.setString(6, user.getAuthority());
+			pstmt.setString(1, userJoinDto.getId());
+			pstmt.setString(2, userJoinDto.getPassword());
+			pstmt.setString(3, userJoinDto.getName());
+			pstmt.setString(4, userJoinDto.getGender());
+			pstmt.setString(5, userJoinDto.getEmail());
+			pstmt.setString(6, userJoinDto.getAuthority());
 			pstmt.executeUpdate();
 			return true;
 		} catch (Exception e) {

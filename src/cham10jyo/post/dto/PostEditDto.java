@@ -1,13 +1,13 @@
 package cham10jyo.post.dto;
 
-public class EditDto {
+public class PostEditDto {
     private String title;
     private String content;
 
-    public EditDto() {
+    public PostEditDto() {
     }
 
-    public EditDto(String title, String content) {
+    public PostEditDto(String title, String content) {
         this.title = title;
         this.content = content;
     }

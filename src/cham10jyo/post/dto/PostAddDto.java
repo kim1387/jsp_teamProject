@@ -1,14 +1,14 @@
 package cham10jyo.post.dto;
 
-public class AddDto {
+public class PostAddDto {
     private String title;
     private String content;
     private String userId;
 
-    public AddDto() {
+    public PostAddDto() {
     }
 
-    public AddDto(String title, String userId, String content) {
+    public PostAddDto(String title, String userId, String content) {
         this.title = title;
         this.userId = userId;
         this.content = content;

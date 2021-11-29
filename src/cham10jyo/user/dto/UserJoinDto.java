@@ -1,19 +1,23 @@
 package cham10jyo.user.dto;
 
-public class UserEditDto {
+public class UserJoinDto {
     String id;
     String password;
     String name;
+    String gender;
     String email;
+    String authority;
 
-    public UserEditDto() {
+    public UserJoinDto() {
     }
 
-    public UserEditDto(String id, String password, String name, String email) {
+    public UserJoinDto(String id, String password, String name, String gender, String email, String authority) {
         this.id = id;
         this.password = password;
         this.name = name;
+        this.gender = gender;
         this.email = email;
+        this.authority = authority;
     }
 
     public String getId() {
@@ -40,11 +44,27 @@ public class UserEditDto {
         this.name = name;
     }
 
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getAuthority() {
+        return authority;
+    }
+
+    public void setAuthority(String authority) {
+        this.authority = authority;
     }
 }

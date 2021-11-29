@@ -1,8 +1,8 @@
 package cham10jyo.post.dao;
 
 import cham10jyo.post.domain.Post;
-import cham10jyo.post.dto.AddDto;
-import cham10jyo.post.dto.EditDto;
+import cham10jyo.post.dto.PostAddDto;
+import cham10jyo.post.dto.PostEditDto;
 import cham10jyo.util.DbUtil;
 
 import java.sql.Connection;
@@ -10,7 +10,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 public class PostDao {
     private Connection connection;
@@ -24,19 +23,19 @@ public class PostDao {
 
     /**
      *  게시글 생성
-     * @param addDto 제목
+     * @param postAddDto 제목
      * @return 게시글 생성 성공 여부
      */
-    public boolean write(AddDto addDto) {
+    public boolean write(PostAddDto postAddDto) {
         String SQL = "insert into post values(?, ?, ?, ?, ?, ?)";
         try {
             java.sql.Date today = (java.sql.Date) new Date();
             pstmt = connection.prepareStatement(SQL);
-            pstmt.setString(1, addDto.getTitle());
-            pstmt.setString(2, addDto.getUserId());
+            pstmt.setString(1, postAddDto.getTitle());
+            pstmt.setString(2, postAddDto.getUserId());
             pstmt.setDate(3, today);
             pstmt.setDate(4, today);
-            pstmt.setString(5, addDto.getContent());
+            pstmt.setString(5, postAddDto.getContent());
             pstmt.setInt(6, 0); // 0 - false, 1 - true 삭제 여부
             pstmt.executeUpdate();
             return true;
@@ -50,16 +49,16 @@ public class PostDao {
     /**
      * 게시글 수정
      * @param id 수정할 게시글을 찾기 위한 id
-     * @param editDto 제목이 title로 수정됨
+     * @param postEditDto 제목이 title로 수정됨
      * @return
      */
-    public boolean editContent(EditDto editDto, Long id) {
+    public boolean editContent(PostEditDto postEditDto, Long id) {
         try {
             java.sql.Date today = (java.sql.Date) new Date();
             pstmt = connection.prepareStatement("update post set title=?, updated_date=?,content=? where id=?");
-            pstmt.setString(1, editDto.getTitle());
+            pstmt.setString(1, postEditDto.getTitle());
             pstmt.setDate(2, today);
-            pstmt.setString(3, editDto.getContent());
+            pstmt.setString(3, postEditDto.getContent());
             pstmt.setLong(4, id);
             pstmt.executeUpdate();
             return true;

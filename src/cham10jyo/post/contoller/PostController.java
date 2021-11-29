@@ -1,8 +1,8 @@
 package cham10jyo.post.contoller;
 
 import cham10jyo.post.dao.PostDao;
-import cham10jyo.post.dto.AddDto;
-import cham10jyo.post.dto.EditDto;
+import cham10jyo.post.dto.PostAddDto;
+import cham10jyo.post.dto.PostEditDto;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -31,7 +31,7 @@ public class PostController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html;charset=utf-8");
-
+        //TODO 게시글 조회 구현
         response.sendRedirect("./view/page/board/");
     }
 
@@ -49,8 +49,8 @@ public class PostController extends HttpServlet {
         String title = req.getParameter("title");
         String userId = req.getParameter("userId");
         String content = req.getParameter("content");
-        AddDto addDto = new AddDto(title,userId,content);
-        postDao.write(addDto);
+        PostAddDto postAddDto = new PostAddDto(title,userId,content);
+        postDao.write(postAddDto);
 
     }
 
@@ -68,8 +68,8 @@ public class PostController extends HttpServlet {
         String title = req.getParameter("title");
         Long postId = Long.parseLong(req.getParameter("id"));
         String content = req.getParameter("content");
-        EditDto editDto = new EditDto(title,content);
-        postDao.editContent(editDto,postId);
+        PostEditDto postEditDto = new PostEditDto(title,content);
+        postDao.editContent(postEditDto,postId);
     }
 
 
