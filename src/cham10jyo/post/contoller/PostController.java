@@ -1,5 +1,6 @@
 package cham10jyo.post.contoller;
 
+//import javax.servlet.ServletException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
