@@ -1,6 +1,8 @@
 package cham10jyo.post.dao;
 
 import cham10jyo.post.domain.Post;
+import cham10jyo.post.dto.AddDto;
+import cham10jyo.post.dto.EditDto;
 import cham10jyo.util.DbUtil;
 
 import java.sql.Connection;
@@ -22,21 +24,19 @@ public class PostDao {
 
     /**
      *  게시글 생성
-     * @param title 제목
-     * @param userid 작성자 id
-     * @param content 내용
+     * @param addDto 제목
      * @return 게시글 생성 성공 여부
      */
-    public boolean write(String title, String userid, String content) {
+    public boolean write(AddDto addDto) {
         String SQL = "insert into post values(?, ?, ?, ?, ?, ?)";
         try {
             java.sql.Date today = (java.sql.Date) new Date();
             pstmt = connection.prepareStatement(SQL);
-            pstmt.setString(1, title);
-            pstmt.setString(2, userid);
+            pstmt.setString(1, addDto.getTitle());
+            pstmt.setString(2, addDto.getUserId());
             pstmt.setDate(3, today);
             pstmt.setDate(4, today);
-            pstmt.setString(5, content);
+            pstmt.setString(5, addDto.getContent());
             pstmt.setInt(6, 0); // 0 - false, 1 - true 삭제 여부
             pstmt.executeUpdate();
             return true;
@@ -50,17 +50,16 @@ public class PostDao {
     /**
      * 게시글 수정
      * @param id 수정할 게시글을 찾기 위한 id
-     * @param title 제목이 title로 수정됨
-     * @param content 내용이 content로 수정됨
+     * @param editDto 제목이 title로 수정됨
      * @return
      */
-    public boolean editContent(Long id, String title, String content) {
+    public boolean editContent(EditDto editDto, Long id) {
         try {
             java.sql.Date today = (java.sql.Date) new Date();
             pstmt = connection.prepareStatement("update post set title=?, updated_date=?,content=? where id=?");
-            pstmt.setString(1, title);
+            pstmt.setString(1, editDto.getTitle());
             pstmt.setDate(2, today);
-            pstmt.setString(3, content);
+            pstmt.setString(3, editDto.getContent());
             pstmt.setLong(4, id);
             pstmt.executeUpdate();
             return true;
