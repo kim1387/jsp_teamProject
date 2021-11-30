@@ -28,7 +28,7 @@ public class PostModifyController extends HttpServlet {
      * @throws IOException
      */
     @Override
-    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String title = req.getParameter("title");
         Long postId = Long.parseLong(req.getParameter("id"));
         String content = req.getParameter("content");

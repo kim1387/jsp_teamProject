@@ -8,8 +8,9 @@ import cham10jyo.util.DbUtil;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class PostDao {
     private Connection connection;
@@ -27,9 +28,11 @@ public class PostDao {
      * @return 게시글 생성 성공 여부
      */
     public boolean write(PostCreateDto postCreateDto) {
-        String SQL = "insert into post values(?, ?, ?, ?, ?, ?)";
+        String SQL = "insert into post values(?, ?, ?, ?, ?, ?, ?)";
         try {
-            java.sql.Date today = (java.sql.Date) new Date();
+            Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+
             pstmt = connection.prepareStatement(SQL);
             pstmt.setString(1, postCreateDto.getTitle());
             pstmt.setString(2, postCreateDto.getUserId());
@@ -37,6 +40,7 @@ public class PostDao {
             pstmt.setDate(4, today); //수정 날짜
             pstmt.setString(5, postCreateDto.getContent());
             pstmt.setInt(6, 0); // 0 - false, 1 - true 삭제 여부
+            pstmt.setString(7, postCreateDto.getBbsType());
             pstmt.executeUpdate();
             return true;
         } catch (Exception e) {
@@ -54,10 +58,10 @@ public class PostDao {
      */
     public boolean editContent(PostEditDto postEditDto, Long id) {
         try {
-            java.sql.Date today = (java.sql.Date) new Date();
+            Timestamp timestamp = new Timestamp(System.currentTimeMillis());
             pstmt = connection.prepareStatement("update post set title=?, updated_date=?,content=? where id=?");
             pstmt.setString(1, postEditDto.getTitle());
-            pstmt.setDate(2, today);
+            pstmt.setTimestamp(2, timestamp);
             pstmt.setString(3, postEditDto.getContent());
             pstmt.setLong(4, id);
             pstmt.executeUpdate();
@@ -122,8 +126,8 @@ public class PostDao {
                 post.setId(rs.getLong(1));
                 post.setTitle(rs.getString(2));
                 post.setUserEmail(rs.getString(3));
-                post.setCreatedDate(rs.getDate(4));
-                post.setUpdatedDate(rs.getDate(5));
+                post.setCreatedDate(rs.getTimestamp(4));
+                post.setUpdatedDate(rs.getTimestamp(5));
                 post.setContent(rs.getString(6));
                 post.setRemoved(rs.getBoolean(6));
                 posts.add(post);
@@ -153,8 +157,8 @@ public class PostDao {
                 post.setId(rs.getLong(1));
                 post.setTitle(rs.getString(2));
                 post.setUserEmail(rs.getString(3));
-                post.setCreatedDate(rs.getDate(4));
-                post.setUpdatedDate(rs.getDate(5));
+                post.setCreatedDate(rs.getTimestamp(4));
+                post.setUpdatedDate(rs.getTimestamp(5));
                 post.setRemoved(rs.getBoolean(6));
                 posts.add(post);
             }
@@ -180,8 +184,8 @@ public class PostDao {
                 post.setId(rs.getLong(1));
                 post.setTitle(rs.getString(2));
                 post.setUserEmail(rs.getString(3));
-                post.setCreatedDate(rs.getDate(4));
-                post.setUpdatedDate(rs.getDate(5));
+                post.setCreatedDate(rs.getTimestamp(4));
+                post.setUpdatedDate(rs.getTimestamp(5));
                 post.setRemoved(rs.getBoolean(6));
                 posts.add(post);
             }

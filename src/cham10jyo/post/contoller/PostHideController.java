@@ -27,7 +27,7 @@ public class PostHideController extends HttpServlet {
      * @throws IOException
      */
     @Override
-    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Long postId = Long.parseLong(req.getParameter("id"));
         //todo 작성자랑 이름이 같을 경우만 수정 가능
         postDao.hide(postId);

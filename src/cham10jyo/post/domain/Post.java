@@ -1,13 +1,15 @@
 package cham10jyo.post.domain;
 
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class Post {
     private Long id;
     private String title;
     private String userEmail;
-    private Date createdDate;
-    private Date updatedDate;
+    private Timestamp createdDate;
+    private Timestamp updatedDate;
     private String content;
     private Boolean isRemoved;
     private String bbsType;
@@ -49,15 +51,15 @@ public class Post {
         return createdDate;
     }
 
-    public void setCreatedDate(Date createdDate) {
+    public void setCreatedDate(Timestamp createdDate) {
         this.createdDate = createdDate;
     }
 
-    public Date getUpdatedDate() {
+    public Timestamp getUpdatedDate() {
         return updatedDate;
     }
 
-    public void setUpdatedDate(Date updatedDate) {
+    public void setUpdatedDate(Timestamp updatedDate) {
         this.updatedDate = updatedDate;
     }
 
