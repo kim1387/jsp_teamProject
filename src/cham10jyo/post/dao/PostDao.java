@@ -36,8 +36,8 @@ public class PostDao {
             pstmt = connection.prepareStatement(SQL);
             pstmt.setString(1, postCreateDto.getTitle());
             pstmt.setString(2, postCreateDto.getUserId());
-            pstmt.setDate(3, today); //작성 날짜
-            pstmt.setDate(4, today); //수정 날짜
+            pstmt.setTimestamp(3, timestamp); //작성 날짜
+            pstmt.setTimestamp(4, timestamp); //수정 날짜
             pstmt.setString(5, postCreateDto.getContent());
             pstmt.setInt(6, 0); // 0 - false, 1 - true 삭제 여부
             pstmt.setString(7, postCreateDto.getBbsType());
