@@ -7,6 +7,6 @@
 |회원가입|/user/join|post|이메일 비밀번호로 로그인|
 |로그인|/user/login|post|이메일 비밀번호로 로그인 세션 설정|
 |로그아웃|/logout|get|로그아웃 세션 종료|
-|회원정보 수정|/user/join|post|회원정보 수정|
+|회원정보 수정|/user/edit|post|회원정보 수정|
 |회원 탈퇴|/user/delete|post|회원 삭제|
   
