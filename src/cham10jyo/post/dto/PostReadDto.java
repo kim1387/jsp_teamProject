@@ -10,7 +10,6 @@ public class PostReadDto {
     private Timestamp createdDate;
     private Timestamp updatedDate;
     private String content;
-    private Boolean isRemoved;
     private String bbsType;
 
 
@@ -68,14 +67,6 @@ public class PostReadDto {
 
     public void setContent(String content) {
         this.content = content;
-    }
-
-    public Boolean getRemoved() {
-        return isRemoved;
-    }
-
-    public void setRemoved(Boolean removed) {
-        isRemoved = removed;
     }
 
 }

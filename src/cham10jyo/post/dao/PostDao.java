@@ -5,10 +5,7 @@ import cham10jyo.post.dto.PostCreateDto;
 import cham10jyo.post.dto.PostEditDto;
 import cham10jyo.util.DbUtil;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Timestamp;
+import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
@@ -28,19 +25,18 @@ public class PostDao {
      * @return 게시글 생성 성공 여부
      */
     public boolean write(PostCreateDto postCreateDto) {
-        String SQL = "insert into post values(?, ?, ?, ?, ?, ?, ?)";
+        String SQL = "insert into post values(default, ?, ?, ?, ?, ?, ?)";
         try {
             Timestamp timestamp = new Timestamp(System.currentTimeMillis());
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 
-            pstmt = connection.prepareStatement(SQL);
+            pstmt = connection.prepareStatement(SQL,Statement.RETURN_GENERATED_KEYS);
             pstmt.setString(1, postCreateDto.getTitle());
             pstmt.setString(2, postCreateDto.getUserId());
             pstmt.setTimestamp(3, timestamp); //작성 날짜
             pstmt.setTimestamp(4, timestamp); //수정 날짜
             pstmt.setString(5, postCreateDto.getContent());
-            pstmt.setBoolean(6, false); // 0 - false, 1 - true 삭제 여부
-            pstmt.setString(7, postCreateDto.getBbsType());
+            pstmt.setString(6, postCreateDto.getBbsType());
             pstmt.executeUpdate();
             return true;
         } catch (Exception e) {
@@ -74,26 +70,7 @@ public class PostDao {
 
 
     /**
-     * 게시글 숨기기
-     * @param id
-     * @return
-     */
-    public boolean hide(Long id) {
-        try {
-            pstmt = connection.prepareStatement("update post set isRemoved=? where id=?");
-            pstmt.setLong(1, 1); // 1이면 삭제됨 의미 db에 tinyint
-            pstmt.setLong(2, id);
-            pstmt.executeUpdate();
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false; //데이터베이스 오류
-        }
-    }
-
-
-    /**
-     * 게시글 hard 삭제
+     * 게시글  삭제
      * @param id
      * @return
      */
@@ -129,7 +106,6 @@ public class PostDao {
                 post.setCreatedDate(rs.getTimestamp(4));
                 post.setUpdatedDate(rs.getTimestamp(5));
                 post.setContent(rs.getString(6));
-                post.setRemoved(rs.getBoolean(6));
                 posts.add(post);
             }
             pstmt.executeUpdate();
@@ -159,7 +135,6 @@ public class PostDao {
                 post.setUserEmail(rs.getString(3));
                 post.setCreatedDate(rs.getTimestamp(4));
                 post.setUpdatedDate(rs.getTimestamp(5));
-                post.setRemoved(rs.getBoolean(6));
                 posts.add(post);
             }
             return posts;
@@ -186,7 +161,6 @@ public class PostDao {
                 post.setUserEmail(rs.getString(3));
                 post.setCreatedDate(rs.getTimestamp(4));
                 post.setUpdatedDate(rs.getTimestamp(5));
-                post.setRemoved(rs.getBoolean(6));
                 posts.add(post);
             }
             return posts;
