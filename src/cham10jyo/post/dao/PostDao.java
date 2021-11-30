@@ -149,7 +149,7 @@ public class PostDao {
     public ArrayList<Post> searchByTitle(String title) {
         ArrayList<Post> posts = new ArrayList<Post>();
         try {
-            pstmt = connection.prepareStatement("select * from post where title like '%?%'");
+            pstmt = connection.prepareStatement("select * from post where title like %?%");
             pstmt.setString(1, title);
             rs = pstmt.executeQuery();
             while (rs.next()){
