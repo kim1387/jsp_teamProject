@@ -10,11 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 
-@WebServlet("/post/read")
-public class PostReadController extends HttpServlet {
+@WebServlet("/post/readNotice")
+public class PostReadNoticeController extends HttpServlet {
 
     private PostDao postDao =null;
-    public PostReadController() {
+    public PostReadNoticeController() {
         postDao = new PostDao();
     }
 
@@ -29,7 +29,7 @@ public class PostReadController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html;charset=utf-8");
-        //TODO 게시글 조회 구현
+        //TODO 게시판 페이지로 이동
         response.sendRedirect("./view/page/board/");
     }
 }

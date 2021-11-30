@@ -1,9 +1,9 @@
-package cham10jyo.post.domain;
+package cham10jyo.post.dto;
 
 import java.sql.Timestamp;
 import java.util.Date;
 
-public class Post {
+public class PostReadDto {
     private Long id;
     private String title;
     private String userEmail;
