@@ -1,17 +1,27 @@
 package cham10jyo.post.dto;
 
-public class PostAddDto {
+public class PostCreateDto {
     private String title;
     private String content;
     private String userId;
+    private String bbsType;
 
-    public PostAddDto() {
+    public PostCreateDto() {
     }
 
-    public PostAddDto(String title, String userId, String content) {
+    public PostCreateDto(String title, String content, String userId, String bbsType) {
         this.title = title;
-        this.userId = userId;
         this.content = content;
+        this.userId = userId;
+        this.bbsType = bbsType;
+    }
+
+    public String getBbsType() {
+        return bbsType;
+    }
+
+    public void setBbsType(String bbsType) {
+        this.bbsType = bbsType;
     }
 
     public String getTitle() {

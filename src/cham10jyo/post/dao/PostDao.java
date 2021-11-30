@@ -1,7 +1,7 @@
 package cham10jyo.post.dao;
 
 import cham10jyo.post.domain.Post;
-import cham10jyo.post.dto.PostAddDto;
+import cham10jyo.post.dto.PostCreateDto;
 import cham10jyo.post.dto.PostEditDto;
 import cham10jyo.util.DbUtil;
 
@@ -23,19 +23,19 @@ public class PostDao {
 
     /**
      *  게시글 생성
-     * @param postAddDto 제목
+     * @param postCreateDto 제목
      * @return 게시글 생성 성공 여부
      */
-    public boolean write(PostAddDto postAddDto) {
+    public boolean write(PostCreateDto postCreateDto) {
         String SQL = "insert into post values(?, ?, ?, ?, ?, ?)";
         try {
             java.sql.Date today = (java.sql.Date) new Date();
             pstmt = connection.prepareStatement(SQL);
-            pstmt.setString(1, postAddDto.getTitle());
-            pstmt.setString(2, postAddDto.getUserId());
+            pstmt.setString(1, postCreateDto.getTitle());
+            pstmt.setString(2, postCreateDto.getUserId());
             pstmt.setDate(3, today);
             pstmt.setDate(4, today);
-            pstmt.setString(5, postAddDto.getContent());
+            pstmt.setString(5, postCreateDto.getContent());
             pstmt.setInt(6, 0); // 0 - false, 1 - true 삭제 여부
             pstmt.executeUpdate();
             return true;
@@ -70,11 +70,11 @@ public class PostDao {
 
 
     /**
-     * 게시글 soft 삭제 (삭제된 것으로 보이게하기)
+     * 게시글 숨기기
      * @param id
      * @return
      */
-    public boolean deleteSoft(Long id) {
+    public boolean hide(Long id) {
         try {
             pstmt = connection.prepareStatement("update post set isRemoved=? where id=?");
             pstmt.setLong(1, 1); // 1이면 삭제됨 의미 db에 tinyint
@@ -93,7 +93,7 @@ public class PostDao {
      * @param id
      * @return
      */
-    public boolean deleteHard(Long id) {
+    public boolean delete(Long id) {
         try {
             pstmt = connection.prepareStatement("delete from post where id = ?");
             pstmt.setLong(1, id);
@@ -121,7 +121,7 @@ public class PostDao {
                 Post post = new Post();
                 post.setId(rs.getLong(1));
                 post.setTitle(rs.getString(2));
-                post.setUserId(rs.getString(3));
+                post.setUserEmail(rs.getString(3));
                 post.setCreatedDate(rs.getDate(4));
                 post.setUpdatedDate(rs.getDate(5));
                 post.setContent(rs.getString(6));
@@ -152,7 +152,7 @@ public class PostDao {
                 Post post = new Post();
                 post.setId(rs.getLong(1));
                 post.setTitle(rs.getString(2));
-                post.setUserId(rs.getString(3));
+                post.setUserEmail(rs.getString(3));
                 post.setCreatedDate(rs.getDate(4));
                 post.setUpdatedDate(rs.getDate(5));
                 post.setRemoved(rs.getBoolean(6));
@@ -179,7 +179,7 @@ public class PostDao {
                 Post post = new Post();
                 post.setId(rs.getLong(1));
                 post.setTitle(rs.getString(2));
-                post.setUserId(rs.getString(3));
+                post.setUserEmail(rs.getString(3));
                 post.setCreatedDate(rs.getDate(4));
                 post.setUpdatedDate(rs.getDate(5));
                 post.setRemoved(rs.getBoolean(6));
