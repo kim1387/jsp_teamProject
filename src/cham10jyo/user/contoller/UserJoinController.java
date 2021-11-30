@@ -37,7 +37,7 @@ public class UserJoinController extends HttpServlet {
         UserJoinDto userJoinDto = new UserJoinDto(password,name,gender,email,authority);
         userDao.join(userJoinDto);
 
-        resp.sendRedirect("view/page/login.jsp");
+        resp.sendRedirect("/view/page/login.jsp");
 
     }
 

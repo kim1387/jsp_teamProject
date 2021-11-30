@@ -9,12 +9,8 @@
 <html>
 <head>
     <title>소통 게시판</title>
-<<<<<<< HEAD
     <%@ include file="/view/components/header.jsp"%>
     <link href="/view/css/common.css" rel="stylesheet">
-=======
-    <%@ include file="../../../view/components/header.jsp"%>
->>>>>>> faeb82b7881de7222d925bc9498b731003e00d57
 </head>
 <body>
 <div class="container">
@@ -23,7 +19,8 @@
             <%@ include file="../../../view/components/sidemenu.jsp"%>
         </div>
         <div class="col mt-4 mr-5">
-            <h1>작성 게시글 번호 나 제목</h1>
+            <h1 name="title">작성 게시글 번호 나 제목</h1>
+            <
             <div class="border mb-3">내용 출력</div>
             <form class="hidden">
                 <textarea class="form-control" id="inputQnaWriter" rows="4" cols="50" maxlength="2048" placeholder="내용을 입력해주세요" style="resize: none;"></textarea>

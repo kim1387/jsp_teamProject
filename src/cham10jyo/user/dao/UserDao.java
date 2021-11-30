@@ -105,7 +105,7 @@ public class UserDao {
 	 */
 	public boolean edit(UserEditDto userEditDto) {
 		try {
-			pstmt = connection.prepareStatement("update user set password=?, name=? where id=?");
+			pstmt = connection.prepareStatement("update user set password=?, name=? where email=?");
 			pstmt.setString(1, userEditDto.getPassword());
 			pstmt.setString(2, userEditDto.getName());
 			pstmt.setString(3, userEditDto.getEmail());

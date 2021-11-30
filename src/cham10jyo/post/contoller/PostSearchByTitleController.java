@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 
-@WebServlet("/post/create")
+@WebServlet("/post/create2")
 public class PostSearchByTitleController extends HttpServlet {
 
     private PostDao postDao =null;

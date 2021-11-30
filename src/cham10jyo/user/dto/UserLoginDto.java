@@ -4,6 +4,7 @@ public class UserLoginDto {
     String password;
     String email;
 
+
     public UserLoginDto(String email, String password) {
         this.password = password;
         this.email = email;
