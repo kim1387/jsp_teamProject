@@ -6,6 +6,7 @@
     <link href="view/css/album.css" rel="stylesheet">
 </head>
 <body>
+
 <div class="container">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -138,5 +139,5 @@
 </main>
 </div>
 </body>
-<%@ include file="/view/components/footer.jsp"%>
+<%@ include file="../../view/components/footer.jsp"%>
 </html>

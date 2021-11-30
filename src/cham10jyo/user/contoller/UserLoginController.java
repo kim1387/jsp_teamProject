@@ -1,7 +1,6 @@
 package cham10jyo.user.contoller;
 
 import cham10jyo.user.dao.UserDao;
-import cham10jyo.user.dto.UserJoinDto;
 import cham10jyo.user.dto.UserLoginDto;
 
 import javax.servlet.ServletException;
@@ -9,7 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(name = "UserLoginController",value = "/user/login")
@@ -35,14 +33,13 @@ public class UserLoginController extends HttpServlet {
         String password = req.getParameter("password");
 
         UserLoginDto userLoginDto = new UserLoginDto(email,password);
-        boolean loginState = userDao.login(userLoginDto);
-        HttpSession httpSession = req.getSession();
-
+        boolean loginState = userDao.login(userLoginDto,req);
         if (loginState){
-            httpSession.setAttribute("userEmail",userLoginDto.getEmail());
+            resp.sendRedirect("/");
+        }else {
+            resp.sendRedirect("/view/page/login.jsp");
         }
 
-        resp.sendRedirect("/");
 
     }
 }

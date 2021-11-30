@@ -9,6 +9,9 @@ import cham10jyo.user.dto.UserJoinDto;
 import cham10jyo.user.dto.UserLoginDto;
 import cham10jyo.util.DbUtil;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 public class UserDao {
 
 	private Connection connection;
@@ -27,21 +30,27 @@ public class UserDao {
 	 */
 	public boolean userCheck(String email, String pw) {
 		try {
-			pstmt = connection.prepareStatement("SELECT password from USER where email = ?");
+			pstmt = connection.prepareStatement("SELECT password FROM user WHERE email=?");
 			pstmt.setString(1,  email);
 			rs = pstmt.executeQuery();
-			if(rs.getString(1).equals(pw)) {
-				return true; //성공
+			if (rs.next()){
+				String storedPW = rs.getString("password");
+				return storedPW.equals(pw); //성공
 			}
-			return false; //실패
 		} catch (Exception e) {
 			e.printStackTrace();
-			return false;
 		}
+		return false;
 	}
 
-	public boolean login(UserLoginDto userLoginDto) {
-		return userCheck(userLoginDto.getEmail(), userLoginDto.getPassword());
+	public boolean login(UserLoginDto userLoginDto, HttpServletRequest req) {
+	  	HttpSession httpSession = req.getSession();
+	  	boolean loginState = userCheck(userLoginDto.getEmail(), userLoginDto.getPassword());
+		if (loginState){
+			httpSession.setAttribute("userEmail",userLoginDto.getEmail());
+			return true;
+		}
+		return false;
 	}
 
 	/**
