@@ -35,5 +35,7 @@ public class UserEditController extends HttpServlet {
         String email = req.getParameter("email");
         UserEditDto userEditDto = new UserEditDto(password,name,email);
         userDao.edit(userEditDto);
+
+        resp.sendRedirect("/view/page/main.jsp");
     }
 }
