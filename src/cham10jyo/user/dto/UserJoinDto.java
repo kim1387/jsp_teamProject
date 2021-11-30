@@ -1,7 +1,6 @@
 package cham10jyo.user.dto;
 
 public class UserJoinDto {
-    String id;
     String password;
     String name;
     String gender;
@@ -11,21 +10,12 @@ public class UserJoinDto {
     public UserJoinDto() {
     }
 
-    public UserJoinDto(String id, String password, String name, String gender, String email, String authority) {
-        this.id = id;
+    public UserJoinDto(String password, String name, String gender, String email, String authority) {
         this.password = password;
         this.name = name;
         this.gender = gender;
         this.email = email;
         this.authority = authority;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getPassword() {

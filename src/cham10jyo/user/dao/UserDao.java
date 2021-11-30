@@ -4,9 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import cham10jyo.user.domain.User;
 import cham10jyo.user.dto.UserEditDto;
 import cham10jyo.user.dto.UserJoinDto;
+import cham10jyo.user.dto.UserLoginDto;
 import cham10jyo.util.DbUtil;
 
 public class UserDao {
@@ -21,14 +21,14 @@ public class UserDao {
 
 	/**
 	 * 유저 검증 - 로그인, 회원탈퇴, 회원 수정의 공통 로직
-	 * @param id
+	 * @param email
 	 * @param pw
 	 * @return
 	 */
-	public boolean userCheck(String id, String pw) {
+	public boolean userCheck(String email, String pw) {
 		try {
-			pstmt = connection.prepareStatement("SELECT password from USER where id = ?");
-			pstmt.setString(1,  id);
+			pstmt = connection.prepareStatement("SELECT password from USER where email = ?");
+			pstmt.setString(1,  email);
 			rs = pstmt.executeQuery();
 			if(rs.getString(1).equals(pw)) {
 				return true; //성공
@@ -40,8 +40,8 @@ public class UserDao {
 		}
 	}
 
-	public boolean login(String id, String pw) {
-		return userCheck(id, pw);
+	public boolean login(UserLoginDto userLoginDto) {
+		return userCheck(userLoginDto.getEmail(), userLoginDto.getPassword());
 	}
 
 	/**
@@ -51,13 +51,13 @@ public class UserDao {
 	 */
 	public boolean join(UserJoinDto userJoinDto) {
 		try {
-			pstmt = connection.prepareStatement("insert into user values ( ?, ?, ?, ?, ?, ?)");
-			pstmt.setString(1, userJoinDto.getId());
+			connection = DbUtil.getConnection();
+			pstmt = connection.prepareStatement("insert into user values ( ?, ?, ?, ?, ?)");
+			pstmt.setString(1, userJoinDto.getEmail());
 			pstmt.setString(2, userJoinDto.getPassword());
 			pstmt.setString(3, userJoinDto.getName());
 			pstmt.setString(4, userJoinDto.getGender());
-			pstmt.setString(5, userJoinDto.getEmail());
-			pstmt.setString(6, userJoinDto.getAuthority());
+			pstmt.setString(5, userJoinDto.getAuthority());
 			pstmt.executeUpdate();
 			return true;
 		} catch (Exception e) {
@@ -96,11 +96,10 @@ public class UserDao {
 	 */
 	public boolean edit(UserEditDto userEditDto) {
 		try {
-			pstmt = connection.prepareStatement("update user set password=?, name=?, email=? where id=?");
+			pstmt = connection.prepareStatement("update user set password=?, name=? where id=?");
 			pstmt.setString(1, userEditDto.getPassword());
 			pstmt.setString(2, userEditDto.getName());
 			pstmt.setString(3, userEditDto.getEmail());
-			pstmt.setString(4, userEditDto.getId());
 			pstmt.executeUpdate();
 			return true;
 		} catch (Exception e) {

@@ -16,7 +16,7 @@ public class DbUtil {
         try {
             Properties prop = new Properties();
             //TODO yml 로 변경
-            InputStream inputStream = DbUtil.class.getClassLoader().getResourceAsStream("/db.properties");
+            InputStream inputStream = DbUtil.class.getClassLoader().getResourceAsStream("/cham10jyo/util/db.properties");
             prop.load(inputStream);
             String driver = prop.getProperty("driver");
             String url = prop.getProperty("url");

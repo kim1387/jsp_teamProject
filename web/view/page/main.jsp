@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>허밍랜드 - Huming Land</title>
-    <%@ include file="/view/components/header.jsp"%>
+    <%@ include file="../../view/components/header.jsp"%>
     <link href="view/css/album.css" rel="stylesheet">
 </head>
 <body>
@@ -129,7 +129,7 @@
     </div>
     <div class="col-md-4">
         <div class="card mb-4 box-shadow">
-            <img class="card-img-top" src="/view/img/amuse_slide_img2.jpg" alt="Card image cap">
+            <img class="card-img-top" src="../../view/img/amuse_slide_img2.jpg" alt="Card image cap">
             <div class="card-body">
                 <p class="card-text"> 12시가 되면 안돼요! 회전목마</p>
             </div>
