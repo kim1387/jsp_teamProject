@@ -118,7 +118,7 @@ public class PostDao {
     public ArrayList<Post> searchByUserName(String name) {
         try {
             ArrayList<Post> posts = new ArrayList<Post>();
-            pstmt = connection.prepareStatement("select * from post where id like '%?%'");
+            pstmt = connection.prepareStatement("select * from post where id like %?%");
             pstmt.setString(1, name);
             rs = pstmt.executeQuery();
             while (rs.next()) {
