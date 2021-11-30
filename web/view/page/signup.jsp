@@ -65,8 +65,8 @@
   <h3>이름</h3>
   <input type="text" name="name" class="form-control" placeholder="Name" >
 
-  <input type="radio" name="gender" value="여성" autofocus>여성
-  <input type="radio" name="gender" value="남성">남성
+  <input type="radio" name="gender" value="female" autofocus>여성
+  <input type="radio" name="gender" value="male">남성
   <p>
     <input type="radio" name="authority" value="normal" autofocus>방문객
     <input type="radio" name="authority" value="admin">관리자

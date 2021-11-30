@@ -9,7 +9,6 @@
 <html>
 <head>
     <title>소통 글쓰기</title>
-    <link href="/view/css/common.css" rel="stylesheet">
     <%@ include file="../../../view/components/header.jsp"%>
 </head>
 <body>
@@ -21,11 +20,6 @@
             <div class="col mt-4 mr-5">
                 <h1>글 작성하기</h1>
                 <form method="post" action="/post/create">
-                    <%
-                        //session 저장
-                        //request.setSession();
-
-                    %>
                     <div class="mb-3">
                         <h2>게시판 선택</h2>
                         <select class="form-select" id="boardType" aria-label="Default select example" name="bbsType">
@@ -38,14 +32,13 @@
                         <h2><label for="inputTitle" class="form-label">제목</label></h2>
                         <input type="text" class="form-control" id="inputTitle" name="title" aria-describedby="titleHelp" placeholder="제목을 입력해주세요" maxlength="20">
 
-                        <h2><label for="inputEmail" class="form-label">이메일</label></h2>
-                        <input class ="form-control hidden"id="inputEmail" name="userEmail" placeholder="이메일을 입력해주세요">
+                        <input class ="form-control hidden" id="inputEmail" name="userEmail" value="<%=email%>" placeholder="이메일을 입력해주세요" style="display: none">
                     </div>
                     <div class="mb-3">
                         <h2><label for="inputWriter" class="form-label">내용</label></h2>
                         <textarea class="form-control" id="inputWriter" rows="4" cols="50" maxlength="2048" placeholder="내용을 입력해주세요" style="resize: none;" name="content"></textarea>
                     </div>
-                    <button onclick="handleWrite()" type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary" value="/post/create">Submit</button>
                 </form>
             </div>
         </div>

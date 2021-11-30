@@ -39,7 +39,7 @@ public class PostDao {
             pstmt.setTimestamp(3, timestamp); //작성 날짜
             pstmt.setTimestamp(4, timestamp); //수정 날짜
             pstmt.setString(5, postCreateDto.getContent());
-            pstmt.setInt(6, 0); // 0 - false, 1 - true 삭제 여부
+            pstmt.setBoolean(6, false); // 0 - false, 1 - true 삭제 여부
             pstmt.setString(7, postCreateDto.getBbsType());
             pstmt.executeUpdate();
             return true;
