@@ -27,7 +27,7 @@ public class PostDeleteController extends HttpServlet {
      * @throws IOException
      */
     @Override
-    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         Long postId = Long.parseLong(req.getParameter("id"));
 

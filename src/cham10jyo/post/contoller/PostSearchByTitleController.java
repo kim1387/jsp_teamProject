@@ -21,7 +21,7 @@ public class PostSearchByTitleController extends HttpServlet {
 
 
     /**
-     * 게시글 생성 요청
+     * 게시글 이름으로 검색 요청
      * @param req
      * @param resp
      * @throws ServletException
@@ -30,11 +30,7 @@ public class PostSearchByTitleController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String title = req.getParameter("title");
-        String userEmail = req.getParameter("userEmail");
-        String content = req.getParameter("content");
-        String bbsType = req.getParameter("bbsType");
-        PostCreateDto postCreateDto = new PostCreateDto(title,userEmail,content,bbsType);
-        postDao.write(postCreateDto);
+        postDao.searchByTitle(title);
     }
 
 }
