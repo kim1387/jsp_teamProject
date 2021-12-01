@@ -161,6 +161,8 @@ public class PostDao {
                 post.setUserEmail(rs.getString(3));
                 post.setCreatedDate(rs.getTimestamp(4));
                 post.setUpdatedDate(rs.getTimestamp(5));
+                post.setContent(rs.getString(5));
+                post.setBbsType(rs.getString(5));
                 posts.add(post);
             }
             return posts;

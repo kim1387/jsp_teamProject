@@ -33,7 +33,7 @@ public class PostCreateController extends HttpServlet {
         String userEmail = req.getParameter("userEmail");
         String content = req.getParameter("content");
         String bbsType = req.getParameter("bbsType");
-        PostCreateDto postCreateDto = new PostCreateDto(title,userEmail,content,bbsType);
+        PostCreateDto postCreateDto = new PostCreateDto(title,content,userEmail,bbsType);
         postDao.write(postCreateDto);
     }
 
