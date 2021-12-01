@@ -32,5 +32,6 @@ public class PostDeleteController extends HttpServlet {
         Long postId = Long.parseLong(req.getParameter("id"));
 
         postDao.delete(postId);
+        resp.sendRedirect("/view/page/board/board_notice.jsp");
     }
 }

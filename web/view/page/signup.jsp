@@ -51,29 +51,25 @@
 </script>
 
 <body>
-
+<div class="container">
 <form class="form-signin" action="/user/join" method="post">
-
-  <h1 class="h3 mb-3 font-weight-normal">회원관리</h1>
-  <h3>이메일</h3>
-  <input type="email" name="email" class="form-control" placeholder="E-mail" >
-  <h3>비밀번호</h3>
-  <input type="password" name="password" class="form-control" placeholder="Password" >
-  <h3>비밀번호 확인</h3>
-  <input type="password" name="inputPassword" class="form-control" placeholder="Password" >
-
-  <h3>이름</h3>
-  <input type="text" name="name" class="form-control" placeholder="Name" >
-
-  <input type="radio" name="gender" value="female" autofocus>여성
-  <input type="radio" name="gender" value="male">남성
-  <p>
-    <input type="radio" name="authority" value="normal" autofocus>방문객
-    <input type="radio" name="authority" value="admin">관리자
-
-
-  <p><input type="submit" class="btn btn-lg btn-primary btn-block" value="Sign in" onclick="return checkLogin()" >
-</form>
+    <h1 class="h3 mb-3 font-weight-normal">회원관리</h1>
+    <h3>이메일</h3>
+    <input type="email" name="email" class="form-control" placeholder="E-mail" required >
+    <h3>비밀번호</h3>
+    <input type="password" name="password" class="form-control" placeholder="Password" required >
+    <h3>비밀번호 확인</h3>
+    <input type="password" name="inputPassword" class="form-control" placeholder="Password" required>
+    <h3>이름</h3>
+    <input type="text" name="name" class="form-control" placeholder="Name" >
+    <input type="radio" name="gender" value="female" autofocus>여성
+    <input type="radio" name="gender" value="male">남성
+    <p>
+      <input type="radio" name="authority" value="normal" autofocus>방문객
+      <input type="radio" name="authority" value="admin">관리자
+    <p><input type="submit" class="btn btn-lg btn-primary btn-block" value="Sign in" onclick="return checkLogin()" >
+  </form>
+</div>
 
 <%@ include file="../components/footer.jsp"%>
 

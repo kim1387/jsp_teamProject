@@ -36,5 +36,7 @@ public class PostModifyController extends HttpServlet {
         String content = req.getParameter("content");
         PostEditDto postEditDto = new PostEditDto(title,content);
         postDao.editContent(postEditDto,postId);
+        resp.sendRedirect("/view/page/board/board_notice.jsp");
+
     }
 }
