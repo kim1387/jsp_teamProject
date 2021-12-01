@@ -28,7 +28,7 @@
                 <thead class="thead-light">
                 <tr>
                     <th scope="col">글번호</th>
-                    <th scope="col" style="width: 50%;">제목</th>
+                    <th scope="col" style="width: 30%;">제목</th>
                     <th scope="col">작성자</th>
                     <th scope="col">작성일</th>
                 </tr>
@@ -38,6 +38,7 @@
                     PostDao postDao = new PostDao();
 
                     ArrayList<Post> posts =  postDao.getNoticePost();
+
                     for(Post post : posts){
                         Long id = post.getId();
                         String title = post.getTitle();
