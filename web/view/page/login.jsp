@@ -11,21 +11,15 @@
 </head>
 <body>
 
-	<form class="form-signin" action="/user/login" method="post">
-      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+	<form class="mt-5 form-signin" action="/user/login" method="post">
       <label for="inputEmail" class="sr-only">Email address</label>
       <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
       <label for="inputPassword" class="sr-only">Password</label>
       <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
       <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="remember-me"> Remember me
-        </label>
       </div>
       <button class="btn btn-lg btn-primary btn-block" type="submit">로그인</button>
         <a href = "/view/page/signup.jsp" class="btn btn-lg bg-Success btn-block " style= "color: white; text-decoration: none;">회원가입</a>
-
-
     </form>
 
     <%@ include file="../../view/components/footer.jsp"%>

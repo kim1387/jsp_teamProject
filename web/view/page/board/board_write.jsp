@@ -23,15 +23,15 @@
                 <form method="post" action="/post/create">
                     <div class="mb-3">
                         <h2><label for="inputTitle" class="form-label">제목</label></h2>
-                        <input type="text" class="form-control" id="inputTitle" name="title" aria-describedby="titleHelp" placeholder="제목을 입력해주세요" maxlength="20">
+                        <input type="text" class="form-control" id="inputTitle" name="title" aria-describedby="titleHelp" placeholder="제목을 입력해주세요" maxlength="15" required>
                         <input class ="hidden" name="bbsType" value="notice">
                         <input class ="form-control hidden" id="inputEmail" name="userEmail" value="<%=email%>" placeholder="이메일을 입력해주세요" style="display: none">
                     </div>
                     <div class="mb-3">
                         <h2><label for="inputWriter" class="form-label">내용</label></h2>
-                        <textarea class="form-control" id="inputWriter" rows="4" cols="50" maxlength="2048" placeholder="내용을 입력해주세요" style="resize: none;" name="content"></textarea>
+                        <textarea class="form-control" id="inputWriter" rows="4" cols="50" maxlength="2048" placeholder="내용을 입력해주세요" style="resize: none;" name="content" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary" value="/post/create">Submit</button>
+                    <button type="submit" class="btn btn-primary" value="/post/create">글 작성하기</button>
                 </form>
             </div>
         </div>
