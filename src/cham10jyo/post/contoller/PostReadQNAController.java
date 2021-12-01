@@ -21,15 +21,16 @@ public class PostReadQNAController extends HttpServlet {
 
     /**
      *  게시글 조회 요청
-     * @param request
-     * @param response
+     * @param req
+     * @param res
      * @throws ServletException
      * @throws IOException
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.setContentType("text/html;charset=utf-8");
+    protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
+        req.setCharacterEncoding("utf-8");
+        res.setContentType("text/html;charset=utf-8");
         //TODO 게시글 조회 구현
-        response.sendRedirect("./view/page/board/");
+        res.sendRedirect("./view/page/board/");
     }
 }

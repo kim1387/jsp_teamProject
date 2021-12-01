@@ -1,4 +1,7 @@
-<%--
+<%@ page import="cham10jyo.post.domain.Post" %>
+<%@ page import="cham10jyo.post.dao.PostDao" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.Date" %><%--
   Created by IntelliJ IDEA.
   User: kpu
   Date: 2021/11/28
@@ -29,24 +32,27 @@
                 </tr>
                 </thead>
                 <tbody>
+                <%
+                    PostDao postDao = new PostDao();
+
+                    ArrayList<Post> posts =  postDao.getQNAPost();
+
+                    for(Post post : posts){
+                        Long id = post.getId();
+                        String title = post.getTitle();
+                        String userEmail = post.getUserEmail();
+                        Date date = post.getCreatedDate();
+
+                %>
                 <tr>
-                    <th scope="row">1</th>
-                    <td><a href="board_view_qna.jsp">제목입니다.</a></td>
-                    <td>Otto</td>
-                    <td>111</td>
+                    <th scope="row"><%=id%></th>
+                    <td><a href="#"><%=title%></a></td>
+                    <td><%=userEmail%></td>
+                    <td><%=date%></td>
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td><a href="board_view_qna.jsp">제목입니다.</a></td>
-                    <td>Otto</td>
-                    <td>111</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td><a href="board_view_qna.jsp">제목입니다.</a></td>
-                    <td>Otto</td>
-                    <td>111</td>
-                </tr>
+                <%
+                    };
+                %>
                 </tbody>
             </table>
         </div>

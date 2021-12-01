@@ -29,6 +29,8 @@ public class PostModifyController extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("utf-8");
+
         String title = req.getParameter("title");
         Long postId = Long.parseLong(req.getParameter("id"));
         String content = req.getParameter("content");

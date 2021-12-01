@@ -37,18 +37,17 @@
                 <%
                     PostDao postDao = new PostDao();
 
-                    ArrayList<Post> posts =  postDao.getAllPost();
-
+                    ArrayList<Post> posts =  postDao.getNoticePost();
                     for(Post post : posts){
                         Long id = post.getId();
                         String title = post.getTitle();
                         String userEmail = post.getUserEmail();
                         Date date = post.getCreatedDate();
-
-                        %>
+                        System.out.print(id);
+                %>
                     <tr>
                         <th scope="row"><%=id%></th>
-                        <td><a href="#"><%=title%></a></td>
+                        <td><a href="board_view.jsp?postId=<%=id%>"><%=title%></a></td>
                         <td><%=userEmail%></td>
                         <td><%=date%></td>
                     </tr>

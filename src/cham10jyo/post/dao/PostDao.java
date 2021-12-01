@@ -95,7 +95,7 @@ public class PostDao {
     public ArrayList<Post> searchByUserName(String name) {
         try {
             ArrayList<Post> posts = new ArrayList<Post>();
-            pstmt = connection.prepareStatement("select * from post where id like %?%");
+            pstmt = connection.prepareStatement("select * from post where name like %?%");
             pstmt.setString(1, name);
             rs = pstmt.executeQuery();
             while (rs.next()) {
@@ -146,26 +146,80 @@ public class PostDao {
 
 
     /**
-     * 모든 게시물 불러오기
+     * QNA 게시물 불러오기
      * @return
      */
-    public ArrayList<Post> getAllPost() {
+    public ArrayList<Post> getQNAPost() {
         ArrayList<Post> posts = new ArrayList<Post>();
         try {
-            pstmt = connection.prepareStatement("select * from post");
+            pstmt = connection.prepareStatement("select * from post where bbs_type='qna' order by id");
             rs = pstmt.executeQuery();
             while (rs.next()){
                 Post post = new Post();
-                post.setId(rs.getLong(1));
-                post.setTitle(rs.getString(2));
-                post.setUserEmail(rs.getString(3));
-                post.setCreatedDate(rs.getTimestamp(4));
-                post.setUpdatedDate(rs.getTimestamp(5));
-                post.setContent(rs.getString(5));
-                post.setBbsType(rs.getString(5));
+                post.setId(rs.getLong("id"));
+                post.setTitle(rs.getString("title"));
+                post.setUserEmail(rs.getString("user_id"));
+                post.setCreatedDate(rs.getTimestamp("created_date"));
+                post.setUpdatedDate(rs.getTimestamp("updated_date"));
+                post.setContent(rs.getString("content"));
+                post.setBbsType(rs.getString("bbs_type"));
                 posts.add(post);
             }
             return posts;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null; //데이터베이스 오류
+        }
+    }
+
+    /**
+     * notice 게시물 불러오기
+     * @return
+     */
+    public ArrayList<Post> getNoticePost() {
+        ArrayList<Post> posts = new ArrayList<Post>();
+        try {
+            pstmt = connection.prepareStatement("select * from post where bbs_type='notice' order by id");
+            rs = pstmt.executeQuery();
+            while (rs.next()){
+                Post post = new Post();
+                post.setId(rs.getLong("id"));
+                post.setTitle(rs.getString("title"));
+                post.setUserEmail(rs.getString("user_id"));
+                post.setCreatedDate(rs.getTimestamp("created_date"));
+                post.setUpdatedDate(rs.getTimestamp("updated_date"));
+                post.setContent(rs.getString("content"));
+                post.setBbsType(rs.getString("bbs_type"));
+                posts.add(post);
+            }
+            return posts;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null; //데이터베이스 오류
+        }
+    }
+
+    /**
+     * notice 게시물 한개 불러오기
+     * @return
+     */
+    public Post getOnePost(Long id) {
+        try {
+            pstmt = connection.prepareStatement("select * from post where id=?");
+            pstmt.setLong(1, id);
+            rs = pstmt.executeQuery();
+            Post post = new Post();
+
+            if(rs.next()){
+                post.setId(rs.getLong("id"));
+                post.setTitle(rs.getString("title"));
+                post.setUserEmail(rs.getString("user_id"));
+                post.setCreatedDate(rs.getTimestamp("created_date"));
+                post.setUpdatedDate(rs.getTimestamp("updated_date"));
+                post.setContent(rs.getString("content"));
+                post.setBbsType(rs.getString("bbs_type"));
+            }
+            return post;
         } catch (Exception e) {
             e.printStackTrace();
             return null; //데이터베이스 오류
