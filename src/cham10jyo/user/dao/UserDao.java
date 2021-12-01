@@ -48,7 +48,6 @@ public class UserDao {
 	  	boolean loginState = userCheck(userLoginDto.getEmail(), userLoginDto.getPassword());
 		if (loginState){
 			httpSession.setAttribute("userEmail",userLoginDto.getEmail());
-			httpSession.setAttribute("auth",userLoginDto.getEmail());
 			return true;
 		}
 		return false;
