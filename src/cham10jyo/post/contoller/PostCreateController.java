@@ -35,6 +35,7 @@ public class PostCreateController extends HttpServlet {
         String bbsType = req.getParameter("bbsType");
         PostCreateDto postCreateDto = new PostCreateDto(title,content,userEmail,bbsType);
         postDao.write(postCreateDto);
+        resp.sendRedirect("/view/page/board/board_notice.jsp");
     }
 
 }

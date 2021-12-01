@@ -2,7 +2,8 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="cham10jyo.post.domain.Post" %>
 <%@ page import="java.io.PrintWriter" %>
-<%@ page import="java.util.concurrent.atomic.AtomicReference" %><%--
+<%@ page import="java.util.concurrent.atomic.AtomicReference" %>
+<%@ page import="java.util.Date" %><%--
   Created by IntelliJ IDEA.
   User: kpu
   Date: 2021/11/28
@@ -34,33 +35,26 @@
                 </thead>
                 <tbody>
                 <%
-                    String title = null;
                     PostDao postDao = new PostDao();
 
                     ArrayList<Post> posts =  postDao.getAllPost();
 
-                    title = posts.get(0).getTitle();
+                    for(Post post : posts){
+                        Long id = post.getId();
+                        String title = post.getTitle();
+                        String userEmail = post.getUserEmail();
+                        Date date = post.getCreatedDate();
 
-
+                        %>
+                    <tr>
+                        <th scope="row"><%=id%></th>
+                        <td><a href="#"><%=title%></a></td>
+                        <td><%=userEmail%></td>
+                        <td><%=date%></td>
+                    </tr>
+                <%
+                    };
                 %>
-                <tr>
-                    <th scope="row">1</th>
-                    <td><a href="board_view.jsp"><%=title%></a></td>
-                    <td>Otto</td>
-                    <td>111</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td><a href="board_view.jsp">제목입니다.</a></td>
-                    <td>Otto</td>
-                    <td>111</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td><a href="board_view.jsp">제목입니다.</a></td>
-                    <td>Otto</td>
-                    <td>111</td>
-                </tr>
                 </tbody>
             </table>
         </div>
