@@ -8,11 +8,11 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class DbUtil {
-	private static Connection connection = null;
+	private static final Connection connection = initailizeConnection();
 
-    public static Connection getConnection(){ // 싱글톤 적용
-        if (connection != null)
-            return connection;
+	public static Connection initailizeConnection() {
+	    Connection result = null;
+
         try {
             Properties prop = new Properties();
             //TODO yml 로 변경
@@ -23,11 +23,19 @@ public class DbUtil {
             String user = prop.getProperty("user");
             String password = prop.getProperty("password");
             Class.forName(driver);
-            connection = DriverManager.getConnection(url, user, password);
+            result = DriverManager.getConnection(url, user, password);
         } catch (ClassNotFoundException | SQLException | IOException e) {
             e.printStackTrace();
         }
-        return connection;
 
+        return result;
+	}
+
+    public static Connection getConnection(){ // 싱글톤 적용
+//        if (connection == null) {
+//            throw new IllegalStateException("connection is initialized with not null condition but current connection is null");
+//        }
+
+	    return connection;
     }
 }
