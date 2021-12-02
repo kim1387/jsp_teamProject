@@ -26,6 +26,8 @@ public class UserJoinController extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
+
         System.out.println(req.getParameter("email"));
         String password = req.getParameter("password");
         String name = req.getParameter("name");
