@@ -28,27 +28,29 @@ public class UserDao {
 	 * @param pw
 	 * @return
 	 */
-	public boolean userCheck(String email, String pw) {
+	public String userCheck(String email, String pw) {
 		try {
-			pstmt = connection.prepareStatement("SELECT password FROM user WHERE email=?");
+			pstmt = connection.prepareStatement("SELECT password, authority FROM user WHERE email=?");
 			pstmt.setString(1,  email);
 			rs = pstmt.executeQuery();
 			if (rs.next()){
 				String storedPW = rs.getString("password");
-				return storedPW.equals(pw); //성공
+				if (storedPW.equals(pw)){
+					return rs.getString("authority"); //성공
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return false;
+		return null;
 	}
 
 	public boolean login(UserLoginDto userLoginDto, HttpServletRequest req) {
 	  	HttpSession httpSession = req.getSession();
-	  	boolean loginState = userCheck(userLoginDto.getEmail(), userLoginDto.getPassword());
-		if (loginState){
+	  	String loginAuthority = userCheck(userLoginDto.getEmail(), userLoginDto.getPassword());
+		if (loginAuthority!=null){
 			httpSession.setAttribute("userEmail",userLoginDto.getEmail());
-			httpSession.setAttribute("auth",userLoginDto.getEmail());
+			httpSession.setAttribute("auth",loginAuthority);
 			return true;
 		}
 		return false;
@@ -85,7 +87,7 @@ public class UserDao {
 	 */
 	public int Withdrawal(String id, String pw_confirm) {
 		try {
-			if (userCheck(id, pw_confirm)){
+			if (userCheck(id, pw_confirm)!=null){
 				pstmt = connection.prepareStatement("delete from user where id = ?");
 				pstmt.setString(1, id);
 				pstmt.executeUpdate();
