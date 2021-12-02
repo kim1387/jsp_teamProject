@@ -1,7 +1,6 @@
 package cham10jyo.user.contoller;
 
 import cham10jyo.user.dao.UserDao;
-import cham10jyo.user.dto.UserEditDto;
 import cham10jyo.user.dto.UserJoinDto;
 
 import javax.servlet.ServletException;

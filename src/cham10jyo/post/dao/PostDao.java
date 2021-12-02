@@ -68,7 +68,6 @@ public class PostDao {
         }
     }
 
-
     /**
      * 게시글  삭제
      * @param id
@@ -125,7 +124,7 @@ public class PostDao {
     public ArrayList<Post> searchByTitle(String title) {
         ArrayList<Post> posts = new ArrayList<Post>();
         try {
-            pstmt = connection.prepareStatement("select * from post where title like %?%");
+            pstmt = connection.prepareStatement("select * from post where title = %?%");
             pstmt.setString(1, title);
             rs = pstmt.executeQuery();
             while (rs.next()){

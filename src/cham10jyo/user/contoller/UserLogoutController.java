@@ -1,8 +1,5 @@
 package cham10jyo.user.contoller;
 
-import cham10jyo.user.dao.UserDao;
-import cham10jyo.user.dto.UserEditDto;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

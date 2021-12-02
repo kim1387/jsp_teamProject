@@ -45,7 +45,7 @@
         <a class="nav-link" href="/view/page/guide.jsp">이용가이드</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/view/page/board/board_notice.jsp">소통</a>
+        <a onclick="handleClick()" class="nav-link" >소통</a>
       </li>
         <%
             if(email == null) {
@@ -68,5 +68,17 @@
     </ul>
   </div>
 </nav>
+<script>
+    function handleClick(){
+        let email = "<%=email%>";
+        if(email === "null"){
+            alert("소통 게시판은 로그인을 해야 이용 가능합니다.");
+            location.href= "/view/page/login.jsp";
+        }
+        else{
+            location.href = "/view/page/board/board_notice.jsp";
+        }
+    }
+</script>
 </body>
 </html>

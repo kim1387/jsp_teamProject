@@ -29,7 +29,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/view/page/board/board_qna.jsp" class="nav-link link-dark me-2 text-center">
+                        <a href="/view/page/board/board_view_faq.jsp" class="nav-link link-dark me-2 text-center">
                             Q & A
                         </a>
                     </li>
@@ -47,6 +47,14 @@
         </div>
         <div class="col mt-4 mr-5">
             <h1>공지사항 게시판</h1>
+            <form action="/view/page/board/board_notice_search.jsp" method="post">
+                <div class="input-group mb-3">
+                    <input type="text" name="title" class="form-control" placeholder="찾으실 글 제목을 입력해주세요." aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="submit">글 검색하기</button>
+                    </div>
+                </div>
+            </form>
             <table class="table">
                 <thead class="thead-light">
                 <tr>
@@ -59,7 +67,6 @@
                 <tbody>
                 <%
                     PostDao postDao = new PostDao();
-
                     ArrayList<Post> posts =  postDao.getNoticePost();
 
                     for(Post post : posts){

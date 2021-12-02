@@ -1,9 +1,5 @@
 package cham10jyo.user.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-
 import cham10jyo.user.dto.UserEditDto;
 import cham10jyo.user.dto.UserJoinDto;
 import cham10jyo.user.dto.UserLoginDto;
@@ -11,6 +7,9 @@ import cham10jyo.util.DbUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class UserDao {
 

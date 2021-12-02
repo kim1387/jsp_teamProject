@@ -1,7 +1,6 @@
 package cham10jyo.post.contoller;
 
 import cham10jyo.post.dao.PostDao;
-import cham10jyo.post.dto.PostCreateDto;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -30,7 +29,8 @@ public class PostSearchByTitleController extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
         String title = req.getParameter("title");
-        postDao.searchByTitle(title);
+        
+        resp.sendRedirect("/view/page/board/board_notice_search.jsp");
     }
 
 }

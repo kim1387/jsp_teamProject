@@ -1,7 +1,6 @@
 package cham10jyo.post.contoller;
 
 import cham10jyo.post.dao.PostDao;
-import cham10jyo.post.dto.PostCreateDto;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
