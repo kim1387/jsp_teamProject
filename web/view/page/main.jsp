@@ -16,21 +16,21 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="img-fluid" src="/view/img/amuse_slide_img1.jpg" alt="image First slide">
+                <img class="img-fluid" src="/view/img/amuse_slide_event1.png" alt="image First slide">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>1번 이미지</h5>
                     <p>1번 이미지</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="img-fluid" src="/view/img/amuse_slide_img2.jpg" alt="Second slide">
+                <img class="img-fluid" src="/view/img/amuse_slide_event2.png" alt="Second slide">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>2번 이미지</h5>
                     <p>2번 이미지</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="img-fluid" src="/view/img/amuse_slide_img3.jpg" alt="Third slide">
+                <img class="img-fluid" src="/view/img/amuse_slide_event3.png" alt="Third slide">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>3번 이미지</h5>
                     <p>3번 이미지</p>
