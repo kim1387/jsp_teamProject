@@ -7,6 +7,12 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@taglib prefix="util" tagdir="/WEB-INF/tags"%>
+<%@ page import="java.text.SimpleDateFormat"%>
+<%@ page import="java.util.Date" %>
+<%
+    Date nowTime = new Date();
+    SimpleDateFormat sf = new SimpleDateFormat("yyyy.MM.dd ");
+%>
 <html>
 <head>
     <title>footer</title>
@@ -16,6 +22,7 @@
     <util:line/>
     <div class="container">
         <footer class="py-3 my-4">
+            <h3><%= sf.format(nowTime) %></h3>
             <ul class="nav justify-content-center border-bottom pb-3 mb-3">
                 <li class="nav-item"><a href="/view/page/main.jsp" class="nav-link px-2 text-muted">메인화면</a></li>
                 <li class="nav-item"><a href="/view/page/entertainment.jsp" class="nav-link px-2 text-muted">즐길거리</a></li>

@@ -96,7 +96,7 @@
     <p>
       <input type="radio" name="authority" value="normal" autofocus>방문객
       <input type="radio" name="authority" value="admin">관리자
-    <p><input type="submit" class="btn btn-lg btn-primary btn-block" value="Sign in" onclick="return checkLogin()" >
+    <p><input type="submit" class="btn btn-lg btn-primary btn-block" value="Sign in" onclick="checkLogin()" >
   </form>
 </div>
 

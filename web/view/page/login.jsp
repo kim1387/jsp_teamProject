@@ -51,7 +51,7 @@
       <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
       <div class="checkbox mb-3">
       </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">로그인</button>
+            <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="checkLogin()">로그인</button>
         <a href = "/view/page/signup.jsp" class="btn btn-lg bg-Success btn-block " style= "color: white; text-decoration: none;">회원가입</a>
     </form>
 
