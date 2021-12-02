@@ -17,9 +17,15 @@
 <body>
 <%
     String email = null;
+    String auth = null;
+    String AUTH_KEY_NORMAL = "normal";
+    String AUTH_KEY_ADMIN = "admin";
+
     if (session.getAttribute("userEmail") != null) {
         email = (String)session.getAttribute("userEmail");
+        auth = (String)session.getAttribute("auth");
     }
+
 %>
 <nav class="navbar nav-fills navbar-light bg-light">
     <a class="navbar-brand" href="/view/page/main.jsp">허밍랜드
