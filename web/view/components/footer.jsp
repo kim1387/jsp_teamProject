@@ -19,7 +19,6 @@
     <div class="container">
         <util:line/>
         <footer class="py-3 my-4">
-
             <p class="text-center"><fmt:formatDate value="${nowTime}" type="both" dateStyle="full" timeStyle="full"/></p>
             <ul class="nav justify-content-center border-bottom pb-3 mb-3">
                 <li class="nav-item"><a href="/view/page/main.jsp" class="nav-link px-2 text-muted">메인화면</a></li>
