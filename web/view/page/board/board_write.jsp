@@ -26,7 +26,7 @@
                         </li>
                         <li>
                             <a href="/view/page/board/board_view_faq.jsp" class="nav-link link-dark me-2 text-center">
-                                Q & A
+                                F A Q
                             </a>
                         </li>
                     </ul>

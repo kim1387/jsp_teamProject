@@ -202,7 +202,7 @@
                                                 </div>
                                                 <hr class="mb-4">
 
-                                                <h4 class="mb-3">Payment</h4>
+                                                <h4 class="mb-3">결제수단</h4>
 
                                                 <div class="d-block my-3">
                                                     <div class="custom-control custom-radio">
@@ -426,7 +426,7 @@
                                                 </div>
                                                 <hr class="mb-4">
 
-                                                <h4 class="mb-3">Payment</h4>
+                                                <h4 class="mb-3">결제수단</h4>
 
                                                 <div class="d-block my-3">
                                                     <div class="custom-control custom-radio">
@@ -648,7 +648,7 @@
                                                 </div>
                                                 <hr class="mb-4">
 
-                                                <h4 class="mb-3">Payment</h4>
+                                                <h4 class="mb-3">결제수</h4>
 
                                                 <div class="d-block my-3">
                                                     <div class="custom-control custom-radio">
