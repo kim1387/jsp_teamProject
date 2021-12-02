@@ -37,7 +37,6 @@
                     <%
                     if(!(auth.equals(AUTH_KEY_NORMAL)) && !(auth.equals(null))){
                         out.println("<li>");
-                        out.println(auth);
                         out.println("<a href=\"/view/page/board/board_write.jsp\" class=\"nav-link link-dark me-2 mt-5 bg-primary text-white p-3 m-3 text-center\">\n" + "글 작성\n" + "</a>");
                         out.println("</li>");
                     }
@@ -47,12 +46,12 @@
             </div>
         </div>
         <div class="col mt-4 mr-5">
-            <h1>공지사항 게시판</h1>
-            <form action="/post/create2" method="post">
+            <h1>'${param["title"]}' 의 검색내역</h1>
+            <form action="/view/page/board/board_notice_search.jsp" method="post">
                 <div class="input-group mb-3">
                     <input type="text" name="title" class="form-control" placeholder="찾으실 글 제목을 입력해주세요." aria-label="Recipient's username" aria-describedby="basic-addon2">
                     <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="submit" value="/post/create2">글 검색하기</button>
+                        <button class="btn btn-outline-secondary" type="submit">글 검색하기</button>
                     </div>
                 </div>
             </form>

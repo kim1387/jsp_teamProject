@@ -45,7 +45,6 @@
                     <%
                         if(!(auth.equals(AUTH_KEY_NORMAL)) && !(auth.equals(null))){
                             out.println("<li>");
-                            out.println(auth);
                             out.println("<a href=\"/view/page/board/board_write.jsp\" class=\"nav-link link-dark me-2 mt-5 bg-primary text-white p-3 m-3 text-center\">\n" + "글 작성\n" + "</a>");
                             out.println("</li>");
                         }
@@ -72,12 +71,13 @@
                 <button class="btn btn-Success btn-lg active mt-3" type="submit" value="/post/modify" aria-pressed="true">완료하기</button>
             </form>
             <%
-                if(userEmail.equals(email))
-                   out.println("<button onclick=\"handleEditBbs()\" class=\"mb-3 btn btn-primary btn-lg active\" role=\"button\">수정하기</button>");
+                if(userEmail.equals(email)) {
+                    out.println("<button onclick=\"handleEditBbs()\" class=\"mb-3 btn btn-primary btn-lg active\" role=\"button\">수정하기</button>");
+                    out.println("<form action=\"/post/delete\" method=\"post\">");
+                    out.println("<input class=\"hidden\" name=\"id\" value=\"" + id + "\">");
+                    out.println("<button type=\"submit\" class=\"btn btn-danger btn-lg active\" value=\"/post/delete\">삭제하기</button>");
+                }
             %>
-            <form action="/post/delete" method="post">
-                <input class="hidden" name="id" value="<%=id%>">
-                <button type="submit" class="btn btn-danger btn-lg active" value="/post/delete">삭제하기</button>
             </form>
         </div>
     </div>

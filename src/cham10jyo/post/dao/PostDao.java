@@ -94,7 +94,7 @@ public class PostDao {
     public ArrayList<Post> searchByUserName(String name) {
         try {
             ArrayList<Post> posts = new ArrayList<Post>();
-            pstmt = connection.prepareStatement("select * from post where name like %?%");
+            pstmt = connection.prepareStatement("select * from post where name = ?");
             pstmt.setString(1, name);
             rs = pstmt.executeQuery();
             while (rs.next()) {
@@ -124,7 +124,7 @@ public class PostDao {
     public ArrayList<Post> searchByTitle(String title) {
         ArrayList<Post> posts = new ArrayList<Post>();
         try {
-            pstmt = connection.prepareStatement("select * from post where title = %?%");
+            pstmt = connection.prepareStatement("select * from post where title = ?");
             pstmt.setString(1, title);
             rs = pstmt.executeQuery();
             while (rs.next()){
@@ -192,6 +192,7 @@ public class PostDao {
                 posts.add(post);
             }
             return posts;
+            
         } catch (Exception e) {
             e.printStackTrace();
             return null; //데이터베이스 오류

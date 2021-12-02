@@ -27,47 +27,47 @@
     }
 
 %>
-<nav class="navbar nav-fills navbar-light bg-light">
-    <a class="navbar-brand" href="/view/page/main.jsp">허밍랜드
-    </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="/view/page/main.jsp">메인화면 <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/view/page/entertainment.jsp">즐길거리</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/view/page/guide.jsp">이용가이드</a>
-      </li>
-      <li class="nav-item">
-        <a onclick="handleClick()" class="nav-link" >소통</a>
-      </li>
-        <%
-            if(email == null) {
-        %>
-        <li class="nav-item">
-            <a class="nav-link" href="/view/page/login.jsp">로그인</a>
-        </li>
-        <%
-        } else {
-        %>
-        <li class="nav-item">
-            <a class="nav-link" href="/logout">로그아웃</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/view/page/user.jsp">정보 수정하기</a>
-        </li>
-        <%
-            }
-        %>
-    </ul>
-  </div>
-</nav>
+<div class="container">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+            <img class="bi me-2" width="100" height="100" src="/view/img/amusement-park.png">
+        </a>
+
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            <li>
+                <a class="nav-link" href="/view/page/main.jsp">메인화면 <span class="sr-only">(current)</span></a>
+            </li>
+            <li>
+                <a class="nav-link" href="/view/page/entertainment.jsp">즐길거리</a>
+            </li>
+            <li>
+                <a class="nav-link" href="/view/page/guide.jsp">이용가이드</a>
+            </li>
+            <li>
+                <a onclick="handleClick()" class="nav-link text-primary" >소통</a>
+            </li>
+            <%
+                if(email == null) {
+            %>
+            <li>
+                <a class="nav-link" href="/view/page/login.jsp">로그인</a>
+            </li>
+            <%
+            } else {
+            %>
+
+                <li>
+                    <a class="nav-link" href="/logout">로그아웃</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="/view/page/user.jsp">정보 수정하기</a>
+                </li>
+            <%
+                }
+            %>
+        </ul>
+    </header>
+</div>
 <script>
     function handleClick(){
         let email = "<%=email%>";

@@ -11,7 +11,7 @@
 <head>
     <title>나의 정보</title>
     <%@ include file="../../view/components/header.jsp"%>
-    <link href="../css/signin.css" rel="stylesheet">
+    <link href="/view/css/common.css" rel="stylesheet">
 </head>
 <body>
 
@@ -29,6 +29,7 @@
             <label for="inputName" class="sr-only">이름</label>
             <input type="text" name="name" id="inputName" class="form-control" placeholder="변경하고싶은 이름을 입력해주세요" required autofocus>
             <label for="inputPassword" class="sr-only">비밀번호</label>
+            <input class="hidden" type="email" name="email" value="<%=email%>">
             <input type="password" name="password" id="inputPassword" class="form-control mt-3" placeholder="변경하고싶은 비밀번호를 입력해주세요" required>
             <button class="btn btn-lg btn-primary btn-block" type="submit" value="/user/edit">정보 수정하기</button>
         </form>

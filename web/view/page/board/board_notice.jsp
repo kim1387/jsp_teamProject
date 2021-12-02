@@ -36,7 +36,7 @@
                     <%
                     if(!(auth.equals(AUTH_KEY_NORMAL)) && !(auth.equals(null))){
                         out.println("<li>");
-                        out.println(auth);
+                        //out.println(auth);
                         out.println("<a href=\"/view/page/board/board_write.jsp\" class=\"nav-link link-dark me-2 mt-5 bg-primary text-white p-3 m-3 text-center\">\n" + "글 작성\n" + "</a>");
                         out.println("</li>");
                     }
