@@ -1,3 +1,4 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%--
   Created by IntelliJ IDEA.
   User: kpu
@@ -23,10 +24,10 @@
                 <div class="card-body">
                     <h1 class="card-title pricing-card-title">After4</h1>
                     <ul class="list-unstyled mt-3 mb-4">
-                        <li>어른 48,000원</li>
-                        <li>청소년 42,000원</li>
-                        <li>어린이 36,000원</li>
-                        <li>베이비 15,000원</li>
+                        <li>어른 48,000원 <fmt:formatNumber value="40.78" type="currency" currencySymbol="$" /></li>
+                        <li>청소년 42,000원 <fmt:formatNumber value="35.68" type="currency" currencySymbol="$" /></li>
+                        <li>어린이 36,000원 <fmt:formatNumber value="30.59" type="currency" currencySymbol="$" /></li>
+                        <li>베이비 15,000원 <fmt:formatNumber value="12.74" type="currency" currencySymbol="$" /></li>
                     </ul>
                     <button type="button" class="w-100 btn btn-lg btn-outline-primary">예매하기</button>
                 </div>
@@ -40,10 +41,10 @@
                 <div class="card-body">
                     <h1 class="card-title pricing-card-title">1Day</h1>
                     <ul class="list-unstyled mt-3 mb-4">
-                        <li>어른 59,000원</li>
-                        <li>청소년 52,000원</li>
-                        <li>어린이 47,000원</li>
-                        <li>베이비 15,000원</li>
+                        <li>어른 59,000원 <fmt:formatNumber value="50.13" type="currency" currencySymbol="$" /></li>
+                        <li>청소년 52,000원 <fmt:formatNumber value="44.18" type="currency" currencySymbol="$" /></li>
+                        <li>어린이 47,000원 <fmt:formatNumber value="44.18" type="currency" currencySymbol="$" /></li>
+                        <li>베이비 15,000원 <fmt:formatNumber value="12.74" type="currency" currencySymbol="$" /></li>
                     </ul>
                     <button type="button" class="w-100 btn btn-lg btn-outline-primary">예매하기</button>
                 </div>
@@ -57,8 +58,8 @@
                 <div class="card-body">
                     <h3 class="card-title pricing-card-title">원하는 어트랙션을 예약없이 바로 즐기는 프리미엄 서비스!</h3>
                     <ul class="list-unstyled mt-3 mb-4">
-                        <li>5회권 (5회 이용 가능) 47,000원</li>
-                        <li>10회권 (10회 이용 가능) 85,000원</li>
+                        <li>5회권 (5회 이용 가능) 47,000원 <fmt:formatNumber value="39.93" type="currency" currencySymbol="$" /></li>
+                        <li>10회권 (10회 이용 가능) 85,000원 <fmt:formatNumber value="72.22" type="currency" currencySymbol="$" /></li>
                         <li>(※구매당일 한정, 1인 1매 사용)</li>
                     </ul>
                     <button type="button" class="w-100 btn btn-lg btn-primary">예매하기</button>
