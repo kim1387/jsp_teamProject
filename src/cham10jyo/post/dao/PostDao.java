@@ -124,7 +124,7 @@ public class PostDao {
     public ArrayList<Post> searchByTitle(String title) {
         ArrayList<Post> posts = new ArrayList<Post>();
         try {
-            pstmt = connection.prepareStatement("select * from post where title = ?");
+            pstmt = connection.prepareStatement("select * from post where title=?");
             pstmt.setString(1, title);
             rs = pstmt.executeQuery();
             while (rs.next()){
