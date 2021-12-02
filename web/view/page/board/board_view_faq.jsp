@@ -66,6 +66,7 @@
         </div>
     </div>
 </div>
+<jsp:include page="/view/components/footer.jsp" flush="false" />
+
 </body>
-<%@ include file="../../components/footer.jsp"%>
 </html>

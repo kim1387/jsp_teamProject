@@ -100,7 +100,7 @@
   </form>
 </div>
 
-<%@ include file="../components/footer.jsp"%>
+<jsp:include page="/view/components/footer.jsp" flush="false" />
 
 </body>
 </html>

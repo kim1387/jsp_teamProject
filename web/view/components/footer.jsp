@@ -6,12 +6,14 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" %>
+<%@taglib prefix="util" tagdir="/WEB-INF/tags"%>
 <html>
 <head>
     <title>footer</title>
 </head>
 <body>
 <footer>
+    <util:line/>
     <div class="container">
         <footer class="py-3 my-4">
             <ul class="nav justify-content-center border-bottom pb-3 mb-3">
@@ -24,6 +26,7 @@
             <p class="text-center text-muted">© 2021 hummingland Company, Inc</p>
         </footer>
     </div>
+    <util:line/>
 </footer>
 </body>
 </html>

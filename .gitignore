@@ -5,9 +5,5 @@
 .idea
 *.iml
 out
-<<<<<<< HEAD
-gen:
-=======
 gen
-lib
->>>>>>> faeb82b7881de7222d925bc9498b731003e00d57
+DS_Store

@@ -33,6 +33,6 @@
             <button class="btn btn-lg btn-primary btn-block" type="submit" value="/user/edit">정보 수정하기</button>
         </form>
     </div>
+<jsp:include page="/view/components/footer.jsp" flush="false" />
 </body>
-<%@ include file="../../view/components/footer.jsp"%>
 </html>

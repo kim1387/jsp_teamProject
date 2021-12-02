@@ -134,6 +134,6 @@
 </div>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfYaMQfIy4-9TWEGcgaJUJU5v-wln5BvU&callback=myMap"></script>
+<jsp:include page="/view/components/footer.jsp" flush="false" />
 </body>
-<%@ include file="/view/components/footer.jsp"%>
 </html>

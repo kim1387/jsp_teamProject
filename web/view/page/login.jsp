@@ -55,6 +55,6 @@
         <a href = "/view/page/signup.jsp" class="btn btn-lg bg-Success btn-block " style= "color: white; text-decoration: none;">회원가입</a>
     </form>
 
-    <%@ include file="../../view/components/footer.jsp"%>
+    <jsp:include page="/view/components/footer.jsp" flush="false" />
 </body>
 </html>

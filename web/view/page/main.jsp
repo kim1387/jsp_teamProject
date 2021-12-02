@@ -16,21 +16,21 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="img-fluid" src="/view/img/amuse_slide_event1.png" alt="image First slide">
+                <img class="img-fluid" src="/view/img/amuse_slide_img1.jpg" alt="image First slide">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>1번 이미지</h5>
                     <p>1번 이미지</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="img-fluid" src="/view/img/amuse_slide_event2.png" alt="Second slide">
+                <img class="img-fluid" src="/view/img/amuse_slide_img2.jpg" alt="Second slide">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>2번 이미지</h5>
                     <p>2번 이미지</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="img-fluid" src="/view/img/amuse_slide_event3.png" alt="Third slide">
+                <img class="img-fluid" src="/view/img/amuse_slide_img3.jpg" alt="Third slide">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>3번 이미지</h5>
                     <p>3번 이미지</p>
@@ -83,61 +83,9 @@
                 </div>
             </div>
         </div>
-
-        <div class="col-md-4">
-            <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="/view/img/amuse_slide_img2.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text"> 12시가 되면 안돼요! 회전목마</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="/view/img/amuse_slide_img3.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text"> 더 높이 heigher! 회전그네 </p>
-
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="/view/img/amuse_slide_img1.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text"> 뱅글뱅글 돌고 돌아 대관람차 </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-4">
-        <div class="card mb-4 box-shadow">
-            <img class="card-img-top" src="/view/img/amuse_slide_img3.jpg" alt="Card image cap">
-            <div class="card-body">
-                <p class="card-text"> 더 높이 heigher! 회전 그네 </p>
-
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card mb-4 box-shadow">
-            <img class="card-img-top" src="/view/img/amuse_slide_img1.jpg" alt="Card image cap">
-            <div class="card-body">
-                <p class="card-text"> 뱅글뱅글 돌고 돌아 대관람차 </p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card mb-4 box-shadow">
-            <img class="card-img-top" src="../../view/img/amuse_slide_img2.jpg" alt="Card image cap">
-            <div class="card-body">
-                <p class="card-text"> 12시가 되면 안돼요! 회전목마</p>
-            </div>
-        </div>
     </div>
 </main>
 </div>
+<jsp:include page="/view/components/footer.jsp" flush="false" />
 </body>
-<%@ include file="../../view/components/footer.jsp"%>
 </html>
